@@ -67,6 +67,9 @@
         {
             "id": "uk",
             "name": "United Kingdom",
+            "ths-daily": 0.33,
+            "ths-yearly": 119,
+            "currency": "£",
             "cities": [
                 {
                     "name": "London",
@@ -127,6 +130,9 @@
         {
             "id": "us",
             "name": "United States",
+            "ths-daily": 0.41,
+            "ths-yearly": 149,
+            "currency": "$",
             "cities": [
                 {
                     "name": "New York City",
@@ -187,6 +193,9 @@
         {
             "id": "au",
             "name": "Australia",
+            "ths-daily": 0.33,
+            "ths-yearly": 119,
+            "currency": "$",
             "cities": [
                 {
                     "name": "Sydney",
@@ -247,6 +256,9 @@
         {
             "id": "ca",
             "name": "Canada",
+            "ths-daily": 0.55,
+            "ths-yearly": 199,
+            "currency": "£",
             "cities": [
                 {
                     "name": "Vancouver",

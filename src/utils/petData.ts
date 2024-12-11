@@ -1,5 +1,5 @@
 
-import { PetData, Pet, Option } from "./types";
+import { PetData, Pet, Option, Country } from "./types";
 import mergedData from '@/data/pet-cal-data.json';
 
 export const mergedPetData: PetData = mergedData;
@@ -35,21 +35,42 @@ export function getPrice(
     city: string,
     petId: string,
     careType: string
-): number | null {
+): {
+    price: number
+    yearlyPrice: number
+    dailySavings: number
+    yearlySavings: number
+    thsCostDaily: number
+    thsCostYearly: number
+} | null {
     try {
-        const countryData = mergedPetData.countries.find(c => c.name === countryId);
+        const countryData = mergedPetData.countries.find(c => c.name === countryId) as Country
         const cityData = countryData?.cities.find(c => c.name === city);
+        const thsCostDaily = countryData["ths-daily"]!
+        const thsCostYearly = countryData["ths-yearly"]!
 
         if (!cityData) return null;
 
         // For dogs and cats, get specific service prices
         if (petId === 'dog' || petId === 'cat') {
             // @ts-expect-error error
-            return cityData.prices[petId as keyof typeof cityData.prices][careType] || null;
+            const price = cityData.prices[petId as keyof typeof cityData.prices][careType] || 0
+            const dailySavings = price - countryData["ths-daily"]!
+            const yearlyPrice = price * 365
+            const yearlySavings = yearlyPrice - countryData["ths-yearly"]!
+            return {
+                price, yearlyPrice, yearlySavings, dailySavings, thsCostDaily,
+                thsCostYearly
+            }
         }
-
-        // For all other pets, return the generic pet sitting price
-        return cityData.prices['pet sitting'];
+        const price = cityData.prices['pet sitting'] || 0
+        const dailySavings = price - countryData?.["ths-daily"]
+        const yearlyPrice = price * 365
+        const yearlySavings = yearlyPrice - countryData["ths-yearly"]!
+        return {
+            price, yearlyPrice, yearlySavings, dailySavings, thsCostDaily,
+            thsCostYearly
+        }
     } catch (error) {
         console.error('Error getting price:', error);
         return null;
@@ -63,15 +84,26 @@ export function calculateTotalCost(
     petId: string,
     careType: string,
     nights: number
-): { dailyRate: number; totalCost: number } | null {
+): {
+    totalCostDaily: number
+    totalCostYearly: number
+    thsCostDaily: number
+    thsCostYearly: number
+    dailySavings: number
+    yearlySavings: number
+} | null {
 
     const price = getPrice(countryId, city, petId, careType);
 
     if (!price) return null;
 
     return {
-        dailyRate: price,
-        totalCost: price * nights
+        totalCostDaily: price.price * nights,
+        totalCostYearly: price.yearlyPrice * nights,
+        thsCostDaily: price.thsCostDaily,
+        thsCostYearly: price.thsCostYearly,
+        dailySavings: price.dailySavings,
+        yearlySavings: price.yearlySavings
     };
 }
 
@@ -92,7 +124,7 @@ export function getPriceRange(
         mergedPetData.countries.forEach(country => {
             country.cities.forEach(city => {
                 const price = getPrice(country.id, city.name, petId, careType);
-                if (price) prices.push(price);
+                if (price) prices.push(price.price);
             });
         });
 

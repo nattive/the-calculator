@@ -3,6 +3,9 @@
     {
       "name": "Australia",
       "id": "au",
+      "ths-daily": 0.33,
+      "ths-yearly": 119,
+      "currency": "$",
       "cities": [
         {
           "name": "Sydney",

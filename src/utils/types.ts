@@ -31,6 +31,9 @@ export interface City {
 export interface Country {
     id: string;
     name: string;
+    'ths-daily': number;
+    'ths-yearly': number;
+    currency: string;
     cities: City[];
 }
 

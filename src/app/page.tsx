@@ -41,15 +41,13 @@ export default function HomePage() {
       console.log({ calculation });
 
       if (calculation) {
-        // Calculate savings (example: 30% of the total cost)
-        const savings = calculation.totalCost * 0.3;
+
         // Project yearly savings based on current booking
-        const yearlyProjectedSavings = Math.round((savings / formData.nights) * 365);
 
         setResult({
-          cost: calculation.totalCost,
-          savings: Math.round(savings),
-          yearlyProjectedSavings
+          cost: Math.round(calculation.totalCostDaily),
+          savings: Math.round(calculation.dailySavings),
+          yearlyProjectedSavings: calculation.yearlySavings
         });
         setStage('result');
       }
