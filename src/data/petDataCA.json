@@ -1,0 +1,290 @@
+{
+  "countries": [
+    {
+      "name": "Canada",
+      "id": "ca",
+      "cities": [
+        {
+          "name": "Vancouver",
+          "petType": [
+            {
+              "name": "General",
+              "careType": [
+                {
+                  "name": "pet sitting",
+                  "price": 57.50
+                }
+              ]
+            },
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "dog sitting",
+                  "price": 56.25
+                },
+                {
+                  "name": "dog walking",
+                  "price": 27.00
+                },
+                {
+                  "name": "dog kennels",
+                  "price": 69.00
+                },
+                {
+                  "name": "doggy daycare",
+                  "price": 37.80
+                },
+                {
+                  "name": "dog drop-in visits",
+                  "price": 26.00
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 64.00
+                },
+                {
+                  "name": "cat drop-in visits",
+                  "price": 55.00
+                },
+                {
+                  "name": "catteries",
+                  "price": 60.50
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Toronto",
+          "petType": [
+            {
+              "name": "General",
+              "careType": [
+                {
+                  "name": "pet sitting",
+                  "price": 32.50
+                }
+              ]
+            },
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "dog sitting",
+                  "price": 61.50
+                },
+                {
+                  "name": "dog walking",
+                  "price": 35.50
+                },
+                {
+                  "name": "dog kennels",
+                  "price": 40.00
+                },
+                {
+                  "name": "doggy daycare",
+                  "price": 25.00
+                },
+                {
+                  "name": "dog drop-in visits",
+                  "price": 22.50
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 57.50
+                },
+                {
+                  "name": "cat drop-in visits",
+                  "price": 23.50
+                },
+                {
+                  "name": "catteries",
+                  "price": 38.50
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Montreal",
+          "petType": [
+            {
+              "name": "General",
+              "careType": [
+                {
+                  "name": "pet sitting",
+                  "price": 45.00
+                }
+              ]
+            },
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "dog sitting",
+                  "price": 60.00
+                },
+                {
+                  "name": "dog walking",
+                  "price": 22.00
+                },
+                {
+                  "name": "dog kennels",
+                  "price": 45.00
+                },
+                {
+                  "name": "doggy daycare",
+                  "price": 46.90
+                },
+                {
+                  "name": "dog drop-in visits",
+                  "price": 25.00
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 80.00
+                },
+                {
+                  "name": "cat drop-in visits",
+                  "price": 22.50
+                },
+                {
+                  "name": "catteries",
+                  "price": 35.00
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Calgary",
+          "petType": [
+            {
+              "name": "General",
+              "careType": [
+                {
+                  "name": "pet sitting",
+                  "price": 85.00
+                }
+              ]
+            },
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "dog sitting",
+                  "price": 101.25
+                },
+                {
+                  "name": "dog walking",
+                  "price": 32.00
+                },
+                {
+                  "name": "dog kennels",
+                  "price": 77.50
+                },
+                {
+                  "name": "doggy daycare",
+                  "price": 39.00
+                },
+                {
+                  "name": "dog drop-in visits",
+                  "price": 26.00
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 58.00
+                },
+                {
+                  "name": "cat drop-in visits",
+                  "price": 40.00
+                },
+                {
+                  "name": "catteries",
+                  "price": 29.50
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Victoria",
+          "petType": [
+            {
+              "name": "General",
+              "careType": [
+                {
+                  "name": "pet sitting",
+                  "price": 65.00
+                }
+              ]
+            },
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "dog sitting",
+                  "price": 65.00
+                },
+                {
+                  "name": "dog walking",
+                  "price": 22.50
+                },
+                {
+                  "name": "dog kennels",
+                  "price": 57.25
+                },
+                {
+                  "name": "doggy daycare",
+                  "price": 34.50
+                },
+                {
+                  "name": "dog drop-in visits",
+                  "price": 30.00
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 57.50
+                },
+                {
+                  "name": "cat drop-in visits",
+                  "price": 30.00
+                },
+                {
+                  "name": "catteries",
+                  "price": 37.00
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

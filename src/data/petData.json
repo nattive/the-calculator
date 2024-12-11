@@ -1,0 +1,99 @@
+{
+  "countries": [
+    {
+      "id": "uk",
+      "name": "United Kingdom",
+      "cities": [
+        {
+          "name": "London",
+          "petType": [
+            {
+              "name": "General",
+              "careType": [
+                {
+                  "name": "pet sitting",
+                  "price": 52
+                }
+              ]
+            },
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "dog sitting",
+                  "price": 58.5
+                },
+                {
+                  "name": "dog walking",
+                  "price": 17.49
+                },
+                {
+                  "name": "dog kennels",
+                  "price": 78
+                },
+                {
+                  "name": "doggy daycare",
+                  "price": 71.5
+                },
+                {
+                  "name": "dog drop-in visits",
+                  "price": 14.3
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 45.5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "name": "United States",
+      "cities": [
+        {
+          "name": "Glasgow",
+          "petType": [
+            {
+              "name": "Dog",
+              "careType": [
+                {
+                  "name": "daycare",
+                  "price": 10
+                },
+                {
+                  "name": "drop-in visits",
+                  "price": 5
+                }
+              ]
+            },
+            {
+              "name": "Cat",
+              "careType": [
+                {
+                  "name": "cat sitting",
+                  "price": 8
+                },
+                {
+                  "name": "drop-in visits",
+                  "price": 4
+                },
+                {
+                  "name": "catteries",
+                  "price": 12
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
