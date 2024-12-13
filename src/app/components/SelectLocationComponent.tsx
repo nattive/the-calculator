@@ -93,7 +93,7 @@ const SelectLocationComponent = ({
                 {selectedCountry && cities.length > 0 && (
                     <div>
                         <label className="text-xl text-primary-900 font-medium">
-                            Choose your city
+                            Pick the closest city
                         </label>
                         <div className="relative mt-2">
                             <button

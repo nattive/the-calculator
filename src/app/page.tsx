@@ -6,6 +6,7 @@ import SelectLocationComponent from './components/SelectLocationComponent';
 import SelectNightsComponent from './components/SelectNightsComponent';
 import ResultPage from './components/ResultPage';
 import { calculateTotalCost, getAllPets, getCareTypesForPet, getCitiesForCountry, getCountries } from '@/utils/petData';
+import StarterFrame from './components/StarterFrame';
 
 type FormData = {
   pet?: string;
@@ -18,6 +19,7 @@ type FormData = {
 export default function HomePage() {
   const [formData, setFormData] = useState<FormData>({ nights: 1 });
   const [stage, setStage] = useState<'pet' | 'care' | 'location' | 'nights' | 'result'>('pet');
+  const [showCalculator, setShowCalculator] = useState(false)
   const [result, setResult] = useState<{
     cost: number;
     savings: number;
@@ -58,62 +60,72 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-utility-white">
-      {stage === 'pet' && (
-        <SelectPetComponent
-          selectedPet={formData.pet}
-          setSelectedPet={(value) => updateFormData('pet', value)}
-          onNext={() => setStage('care')}
-          availablePets={getAllPets()}
-        />
-      )}
 
-      {stage === 'care' && (
-        <SelectCareComponent
-          careOptions={getCareTypesForPet(formData.pet as string)}
-          selectedCare={formData.care}
-          setSelectedCare={(value) => updateFormData('care', value)}
-          onNext={() => setStage('nights')}
-          onBack={() => setStage('pet')}
-        />
-      )}
+      {
+        !showCalculator ?
 
-      {stage === 'nights' && (
-        <SelectNightsComponent
-          selectedNights={formData.nights}
-          setSelectedNights={(value) => updateFormData('nights', value)}
+          <StarterFrame
+            handleGetStarted={() => setShowCalculator(true)}
+          /> : <>
+            {stage === 'pet' && (
+              <SelectPetComponent
+                selectedPet={formData.pet}
+                setSelectedPet={(value) => updateFormData('pet', value)}
+                onNext={() => setStage('care')}
+                availablePets={getAllPets()}
+              />
+            )}
 
-          onBack={() => setStage('care')}
-          onNext={() => setStage('location')}
-        />
-      )}
+            {stage === 'care' && (
+              <SelectCareComponent
+                careOptions={getCareTypesForPet(formData.pet as string)}
+                selectedCare={formData.care}
+                setSelectedCare={(value) => updateFormData('care', value)}
+                onNext={() => setStage('nights')}
+                onBack={() => setStage('pet')}
+              />
+            )}
 
-      {stage === 'location' && (
-        <SelectLocationComponent
-          selectedCountry={formData.country}
-          selectedCity={formData.city}
-          setSelectedCountry={(value) => updateFormData('country', value)}
-          setSelectedCity={(value) => updateFormData('city', value)}
-          onNext={handleComplete}
-          onBack={() => setStage('care')}
-          countries={getCountries()}
-          cities={formData.country ?
-            getCitiesForCountry(formData.country) : []}
-        />
-      )}
+            {stage === 'nights' && (
+              <SelectNightsComponent
+                selectedNights={formData.nights}
+                setSelectedNights={(value) => updateFormData('nights', value)}
 
-      {stage === 'result' && result && (
-        <ResultPage
-          pet={formData.pet!}
-          petType={formData.pet!}
-          careType={formData.care!}
-          location={formData.city!}
-          country={formData.country!}
-          nights={formData.nights!}
-          cost={result.cost}
-          savings={result.savings}
-          yearlyProjectedSavings={result.yearlyProjectedSavings}
-        />
-      )}
+                onBack={() => setStage('care')}
+                onNext={() => setStage('location')}
+              />
+            )}
+
+            {stage === 'location' && (
+              <SelectLocationComponent
+                selectedCountry={formData.country}
+                selectedCity={formData.city}
+                setSelectedCountry={(value) => updateFormData('country', value)}
+                setSelectedCity={(value) => updateFormData('city', value)}
+                onNext={handleComplete}
+                onBack={() => setStage('care')}
+                countries={getCountries()}
+                cities={formData.country ?
+                  getCitiesForCountry(formData.country) : []}
+              />
+            )}
+
+            {stage === 'result' && result && (
+              <ResultPage
+                pet={formData.pet!}
+                petType={formData.pet!}
+                careType={formData.care!}
+                location={formData.city!}
+                country={formData.country!}
+                nights={formData.nights!}
+                cost={result.cost}
+                savings={result.savings}
+                yearlyProjectedSavings={result.yearlyProjectedSavings}
+              />
+            )}
+          </>
+      }
+
     </div>
   );
 }

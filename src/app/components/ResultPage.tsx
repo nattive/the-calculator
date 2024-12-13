@@ -29,7 +29,7 @@ const ResultPage = ({
             <div className="bg-[#E8FAE9] rounded-lg p-8 text-center">
                 <h2 className="text-primary-900 mb-4">
                     <span className="block text-lg font-bold">With TrustedHousesitters you could save</span>
-                    <span className="text-3xl font-bold">£{yearlyProjectedSavings.toLocaleString()} a year</span>
+                    <span className="text-3xl font-bold">£{(Math.ceil(yearlyProjectedSavings)).toLocaleString()} a year</span>
                 </h2>
                 <p className="text-grey-700">
                     based on {nights} nights pet care for a {petType.toLowerCase()} in {location}, {country}
