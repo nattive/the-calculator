@@ -33,6 +33,9 @@ export default function HomePage() {
   const handleComplete = () => {
     if (formData.country && formData.city && formData.pet &&
       formData.care && formData.nights) {
+      /**
+       *Cost calculation
+       */
       const calculation = calculateTotalCost(
         formData.country,
         formData.city,
