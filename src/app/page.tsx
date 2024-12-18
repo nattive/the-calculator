@@ -1,133 +1,128 @@
-"use client"
+"use client";
 import { useState } from 'react';
 import SelectPetComponent from './components/frames/SelectPet';
 import SelectCareComponent from './components/frames/SelectCareComponent';
 import SelectLocationComponent from './components/frames/SelectLocationComponent';
 import SelectNightsComponent from './components/frames/SelectNightsComponent';
 import ResultPage from './components/frames/ResultPage';
-import { calculateTotalCost, getAllPets, getCareTypesForPet, getCitiesForCountry, getCountries } from '@/utils/petData';
-import StarterFrame from './components/frames/StarterFrame';
+import {
+  calculateTotalCost,
+  getAllPets,
+  getCareTypesForPet,
+  getCitiesForCountry,
+  mergedPetData,
+} from '@/utils/petData';
+import { Country } from '@/utils/types';
 
 type FormData = {
   pet?: string;
   care?: string;
-  nights?: number;
-  country?: string;
+  nights: number;
+  country?: {
+    name: string
+    currency: string
+  };
   city?: string;
 }
 
 export default function HomePage() {
   const [formData, setFormData] = useState<FormData>({ nights: 1 });
   const [stage, setStage] = useState<'pet' | 'care' | 'location' | 'nights' | 'result'>('pet');
-  const [showCalculator, setShowCalculator] = useState(false)
   const [result, setResult] = useState<{
-    cost: number;
+    costPerYear: number;
+    thsPrice: number | undefined;
     savings: number;
-    yearlyProjectedSavings: number;
   } | null>(null);
 
-  const updateFormData = (key: keyof FormData, value: string | number) => {
+  const updateFormData = (key: keyof FormData, value: unknown) => {
     setFormData(prev => ({ ...prev, [key]: value }));
   };
 
   const handleComplete = () => {
-    if (formData.country && formData.city && formData.pet &&
-      formData.care && formData.nights) {
-      /**
-       *Cost calculation
-       */
-      const calculation = calculateTotalCost(
-        formData.country,
-        formData.city,
-        formData.pet,
-        formData.care,
-        formData.nights
-      );
-      console.log({ calculation });
 
-      if (calculation) {
 
-        // Project yearly savings based on current booking
 
-        setResult({
-          cost: Math.round(calculation.totalCostDaily),
-          savings: Math.round(calculation.dailySavings),
-          yearlyProjectedSavings: calculation.yearlySavings
-        });
-        setStage('result');
-      }
-    }
-  };
+    /**
+     *Cost calculation
+     */
+    const calculation = calculateTotalCost(
+      formData.country!,
+      formData.pet!,
+      formData.care!,
+      formData.nights,
+      formData.city,
+    );
+
+    setResult(calculation)
+    setStage('result')
+  }
+
 
 
 
   return (
     <div className=" bg-utility-white">
 
-      {
-        !showCalculator ?
+      {stage === 'pet' && (
+        <SelectPetComponent
+          selectedPet={formData.pet}
+          setSelectedPet={(value) => updateFormData('pet', value)}
+          onNext={() => setStage('care')}
+          availablePets={getAllPets()}
+        />
+      )}
 
-          <StarterFrame
-            handleGetStarted={() => setShowCalculator(true)}
-          /> : <>
-            {stage === 'pet' && (
-              <SelectPetComponent
-                selectedPet={formData.pet}
-                setSelectedPet={(value) => updateFormData('pet', value)}
-                onNext={() => setStage('care')}
-                availablePets={getAllPets()}
-              />
-            )}
+      {stage === 'care' && (
+        <SelectCareComponent
+          careOptions={getCareTypesForPet(formData.pet as string)}
+          selectedCare={formData.care}
+          setSelectedCare={(value) => updateFormData('care', value)}
+          onNext={() => setStage('location')}
+          onBack={() => setStage('pet')}
+        />
+      )}
 
-            {stage === 'care' && (
-              <SelectCareComponent
-                careOptions={getCareTypesForPet(formData.pet as string)}
-                selectedCare={formData.care}
-                setSelectedCare={(value) => updateFormData('care', value)}
-                onNext={() => setStage('nights')}
-                onBack={() => setStage('pet')}
-              />
-            )}
+      {stage === 'location' && (
+        <SelectLocationComponent
+          selectedCountry={formData.country?.name}
+          selectedPet={formData.pet}
+          selectedCity={formData.city}
+          setSelectedCountry={(value) => updateFormData('country', value)}
+          setSelectedCity={(value) => updateFormData('city', value)}
+          onNext={() => setStage('nights')}
+          onBack={() => setStage('care')}
+          countries={mergedPetData.countries as Country[]}
+          cities={formData.country ?
+            getCitiesForCountry(formData.country?.name) : []}
+        />
+      )}
 
-            {stage === 'nights' && (
-              <SelectNightsComponent
-                selectedNights={formData.nights}
-                setSelectedNights={(value) => updateFormData('nights', value)}
+      {stage === 'nights' && (
+        <SelectNightsComponent
+          selectedCountry={formData.country?.name}
+          selectedNights={formData.nights}
+          setSelectedNights={(value) => updateFormData('nights', value)}
+          onBack={() => setStage('care')}
+          onNext={handleComplete}
+        />
+      )}
 
-                onBack={() => setStage('care')}
-                onNext={() => setStage('location')}
-              />
-            )}
 
-            {stage === 'location' && (
-              <SelectLocationComponent
-                selectedCountry={formData.country}
-                selectedCity={formData.city}
-                setSelectedCountry={(value) => updateFormData('country', value)}
-                setSelectedCity={(value) => updateFormData('city', value)}
-                onNext={handleComplete}
-                onBack={() => setStage('care')}
-                countries={getCountries()}
-                cities={formData.country ?
-                  getCitiesForCountry(formData.country) : []}
-              />
-            )}
 
-            {stage === 'result' && result && (
-              <ResultPage
-                pet={formData.pet!}
-                petType={formData.pet!}
-                careType={formData.care!}
-                location={formData.city!}
-                country={formData.country!}
-                nights={formData.nights!}
-                cost={result.cost}
-                savings={result.savings}
-                yearlyProjectedSavings={result.yearlyProjectedSavings}
-              />
-            )}
-          </>
-      }
+      {stage === 'result' && result && (
+        <ResultPage
+          pet={formData.pet!}
+          petType={formData.pet!}
+          careType={formData.care!}
+          location={formData.city!}
+          country={formData.country}
+          nights={formData.nights!}
+          cost={result.costPerYear}
+          savings={result.savings}
+          yearlyProjectedSavings={result.savings}
+        />
+      )}
+
 
     </div>
   );

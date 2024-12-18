@@ -7,7 +7,10 @@ type Props = {
     petType: string;
     careType: string;
     location: string;
-    country: string;
+    country?: {
+        name: string;
+        currency: string;
+    };
     nights: number;
     cost: number;
     savings: number;
@@ -29,10 +32,10 @@ const ResultPage = ({
             {/* Savings Card */}
             <div className="bg-[#E8FAE9] rounded-lg p-8 text-center">
                 <Typography variant='h3'>With TrustedHousesitters you could save</Typography>
-                <Typography variant='display'>£{(Math.ceil(yearlyProjectedSavings)).toLocaleString()} a year</Typography>
+                <Typography variant='display'>{country?.currency}{(Math.ceil(yearlyProjectedSavings)).toLocaleString()} a year</Typography>
 
                 <Typography variant='body' className='font-normal'>
-                    based on {nights} nights pet care for a {petType.toLowerCase()} in {location}, {country}
+                    based on {nights} nights pet care for a {petType.toLowerCase()} in {location}, {country?.name}
                 </Typography>
             </div>
 
@@ -41,13 +44,13 @@ const ResultPage = ({
                 <Typography variant='h3' className='text-primary-900 capitalize-first'>
                     <span className="font-bold capitalize-first">{careType}</span>
                     <span className="font-medium"> in </span>
-                    <span className="font-bold">{location}, {country}</span>
+                    <span className="font-bold">{location}, {country?.name}</span>
                     <span className="font-medium"> cost </span>
-                    <span className="font-bold">£{cost}</span>
+                    <span className="font-bold">{`${country?.currency}${cost}`}</span>
                     <span className="font-medium">. But with </span>
                     <span className="font-bold">TrustedHousesitters</span>
                     <span className="font-medium">, you could save up to </span>
-                    <span className="font-bold">£{savings}</span>
+                    <span className="font-bold">{`${country?.currency}${savings}`}</span>
                     <span className="font-medium">.</span>
                 </Typography>
             </div>

@@ -5,12 +5,13 @@ import { Typography } from '../ui/Typography';
 
 type Props = {
     selectedNights?: number;
+    selectedCountry?: string
     setSelectedNights: (value: number) => void;
     onNext: () => void;
     onBack: () => void;
 }
 
-const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, onBack }: Props) => {
+const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, onBack, selectedCountry }: Props) => {
     const handleIncrement = () => {
         setSelectedNights(selectedNights + 1);
     };
@@ -27,13 +28,17 @@ const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, 
             setSelectedNights(value);
         }
     };
+    console.log(selectedCountry);
 
     return (
         <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8 space-y-8">
             <Progress progress={60} />
 
             <Typography variant="h1">
-                How many nights of pet care do you need?
+                {
+                    ["United Kingdom", "Australia"].includes(selectedCountry!) ? "How many nights of holiday pet care do you book per year?" : "How many nights of vacation pet care do you book per year?"
+                }
+
             </Typography>
 
 

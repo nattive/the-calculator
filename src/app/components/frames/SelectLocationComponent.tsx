@@ -1,23 +1,26 @@
 import { ChevronLeft, ChevronDown } from 'lucide-react';
 import Progress from '../ui/Progress';
 import { useState } from 'react';
-import { Option } from '@/utils/types';
+import { Country } from '@/utils/types';
 import { Button } from '../ui/Button';
 import { Typography } from '../ui/Typography';
+import { toIgnoreCity } from '@/utils/petData';
 
 type Props = {
     selectedCountry?: string;
     selectedCity?: string;
-    setSelectedCountry: (value: string) => void;
+    setSelectedCountry: (value: Country) => void;
     setSelectedCity: (value: string) => void;
     onNext: () => void;
     onBack: () => void;
-    countries: Option[];
+    countries: Country[];
     cities: string[];
+    selectedPet?: string
 }
 
 const SelectLocationComponent = ({
     selectedCountry,
+    selectedPet,
     selectedCity,
     setSelectedCountry,
     setSelectedCity,
@@ -29,16 +32,19 @@ const SelectLocationComponent = ({
     const [isCountryOpen, setIsCountryOpen] = useState(false);
     const [isCityOpen, setIsCityOpen] = useState(false);
 
-    const handleCountrySelect = (country: string) => {
+    const handleCountrySelect = (country: Country) => {
         setSelectedCountry(country);
         setSelectedCity('');
         setIsCountryOpen(false);
+
     };
 
     const handleCitySelect = (city: string) => {
         setSelectedCity(city);
         setIsCityOpen(false);
     };
+
+
 
     return (
         <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
@@ -80,8 +86,8 @@ const SelectLocationComponent = ({
                                 rounded-regular max-h-48 sm:max-h-60 overflow-auto shadow-lg">
                                 {countries.map((country) => (
                                     <button
-                                        key={country.value}
-                                        onClick={() => handleCountrySelect(country.name)}
+                                        key={country.id}
+                                        onClick={() => handleCountrySelect(country)}
                                         className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 transition-colors
                                             text-base sm:text-lg ${selectedCountry === country.name ? 'bg-primary-300/10' : ''}`}
                                     >
@@ -94,7 +100,7 @@ const SelectLocationComponent = ({
                 </div>
 
                 {/* City Selection */}
-                {selectedCountry && cities.length > 0 && (
+                {selectedCountry && cities.length > 0 && !!selectedPet && !toIgnoreCity(selectedPet) && (
                     <div className="relative">
                         <Typography variant="label">
                             Pick the closest city

@@ -1,8 +1,9 @@
 
+import { IPetData } from "@/data/pet-cal-data.interface";
 import { Pet, Option, Country } from "./types";
 import mergedData from '@/data/pet-cal-data.json';
 
-export const mergedPetData = mergedData;
+export const mergedPetData: IPetData = mergedData;
 
 // Function to get all pets with their icons
 export function getAllPets(): Pet[] {
@@ -79,32 +80,39 @@ export function getPrice(
 
 // Function to calculate total cost
 export function calculateTotalCost(
-    countryId: string,
-    city: string,
+    selectedCountry: {
+        name: string;
+        currency: string;
+    },
     petId: string,
     careType: string,
-    nights: number
+    nights: number,
+    city?: string,
 ): {
-    totalCostDaily: number
-    totalCostYearly: number
-    thsCostDaily: number
-    thsCostYearly: number
-    dailySavings: number
-    yearlySavings: number
-} | null {
-
-    const price = getPrice(countryId, city, petId, careType);
-
-    if (!price) return null;
+    costPerYear: number;
+    thsPrice: number | undefined;
+    savings: number;
+} {
+    /**
+     * get selected country
+     */
+    const _country = mergedData.countries.find(country => country.name.toLowerCase() === selectedCountry.name.toLowerCase())
+    const _city = (toIgnoreCity(petId) || !petId) ? _country?.cities.find(c => c.name === "Others") : _country?.cities.find(c => c.name.toLowerCase() === city?.toLowerCase())
+    const _price = _city?.prices[petId.toLowerCase() as never]
+    const costPerYear = Number(_price?.[careType as never]) * +nights
+    console.log({
+        costPerYear,
+        nights,
+        price: _price?.[careType as never],
+        thsPrice: _country?.["ths-yearly"],
+        savings: Math.ceil(costPerYear - (_country?.["ths-yearly"] || 0))
+    });
 
     return {
-        totalCostDaily: price.price * nights,
-        totalCostYearly: price.yearlyPrice * nights,
-        thsCostDaily: price.thsCostDaily,
-        thsCostYearly: price.thsCostYearly,
-        dailySavings: price.dailySavings,
-        yearlySavings: price.yearlySavings
-    };
+        costPerYear,
+        thsPrice: _country?.["ths-yearly"],
+        savings: costPerYear - (_country?.["ths-yearly"] || 0)
+    }
 }
 
 // Helper function to check if a care type is available for a pet
@@ -140,3 +148,6 @@ export function getPriceRange(
         return null;
     }
 }
+
+export const toIgnoreCity = (petCare: string) => !["dog",
+    "cat"].includes(petCare)
