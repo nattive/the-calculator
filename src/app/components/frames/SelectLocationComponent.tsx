@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronDown } from 'lucide-react';
 import Progress from '../ui/Progress';
 import { useState } from 'react';
-import { Country } from '@/utils/types';
+import { City, Country, Pet } from '@/utils/types';
 import { Button } from '../ui/Button';
 import { Typography } from '../ui/Typography';
 import { toIgnoreCity } from '@/utils/petData';
@@ -44,11 +44,23 @@ const SelectLocationComponent = ({
         setIsCityOpen(false);
     };
 
+    const isButtonDisabled = () => {
+        // Country must have a value
+        if (!selectedCountry) return true;
+
+        // Check pet condition for city requirement
+        const ignoreCityCheck = toIgnoreCity(selectedPet!);
+
+        // If we don't ignore city check, city must have a value
+        if (!ignoreCityCheck && !selectedCity) return true;
+
+        return false;
+    };
 
 
     return (
         <main className="max-w-2xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
-            <Progress progress={90} />
+            <Progress progress={60} />
 
             <div className="mb-8 sm:mb-12">
                 <Typography variant="h1">
@@ -127,16 +139,19 @@ const SelectLocationComponent = ({
                             {isCityOpen && (
                                 <div className="absolute z-20 w-full mt-1 bg-utility-white border-2 border-grey-300 
                                     rounded-regular max-h-48 sm:max-h-60 overflow-auto shadow-lg">
-                                    {cities.map((city) => (
-                                        <button
-                                            key={city}
-                                            onClick={() => handleCitySelect(city)}
-                                            className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 transition-colors
-                                               capitalize-first text-base sm:text-lg ${selectedCity === city ? 'bg-primary-300/10' : ''}`}
-                                        >
-                                            {city}
-                                        </button>
-                                    ))}
+                                    {cities
+                                        .filter(c => c.toLowerCase() !== 'others')
+                                        .map((city) => (
+                                            <button
+                                                key={city}
+                                                onClick={() => handleCitySelect(city)}
+                                                className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 transition-colors
+                capitalize-first text-base sm:text-lg ${selectedCity === city ? 'bg-primary-300/10' : ''}`}
+                                            >
+                                                {city}
+                                            </button>
+                                        ))
+                                    }
                                 </div>
                             )}
                         </div>
@@ -154,7 +169,7 @@ const SelectLocationComponent = ({
                     Back
                 </Button>
                 <Button
-                    disabled={!selectedCountry}
+                    disabled={isButtonDisabled()}
                     onClick={onNext}
                     variant="primary"
                 >

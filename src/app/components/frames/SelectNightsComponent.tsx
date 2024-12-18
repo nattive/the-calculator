@@ -32,7 +32,7 @@ const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, 
 
     return (
         <main className="max-w-3xl mx-auto sm:p-6 mt-4 sm:mt-8 space-y-8">
-            <Progress progress={60} />
+            <Progress progress={90} />
 
             <Typography variant="h1">
                 {

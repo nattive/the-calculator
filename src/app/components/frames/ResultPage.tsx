@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import { Typography } from '../ui/Typography';
+import { Button } from '../ui/Button';
 
 type Props = {
     pet: string;
@@ -44,7 +45,7 @@ const ResultPage = ({
                 <Typography variant='h3' className='text-primary-900 capitalize-first'>
                     <span className="font-bold capitalize-first">{careType}</span>
                     <span className="font-medium"> in </span>
-                    <span className="font-bold">{location}, {country?.name}</span>
+                    <span className="font-bold">{location ? `${location},` : null} {country?.name}</span>
                     <span className="font-medium"> cost </span>
                     <span className="font-bold">{`${country?.currency}${cost}`}</span>
                     <span className="font-medium">. But with </span>
@@ -55,12 +56,11 @@ const ResultPage = ({
                 </Typography>
             </div>
 
-            <button
-                className="w-full bg-primary-900 text-utility-white py-4 px-6 rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center gap-2 font-medium"
+            <Button
             >
-                Register Now
+                Register now
                 <ChevronRight className='text-highlight-700' size={20} />
-            </button>
+            </Button>
         </main>
     );
 };

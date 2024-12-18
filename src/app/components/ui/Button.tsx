@@ -17,7 +17,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
     disabled,
     ...props
 }, ref) => {
-    const baseStyles = "capitalize text-md md:text-xl font-medium h-button transition-all duration-200 rounded-regular flex items-center justify-center gap-2 disabled:cursor-not-allowed active:scale-[0.98]";
+    const baseStyles = "capitalize-first text-md md:text-xl font-medium h-button transition-all duration-200 rounded-regular flex items-center justify-center gap-2 disabled:cursor-not-allowed active:scale-[0.98]";
 
     const variants = {
         primary: [

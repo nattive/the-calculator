@@ -102,7 +102,7 @@ export default function HomePage() {
           selectedCountry={formData.country?.name}
           selectedNights={formData.nights}
           setSelectedNights={(value) => updateFormData('nights', value)}
-          onBack={() => setStage('care')}
+          onBack={() => setStage('location')}
           onNext={handleComplete}
         />
       )}
