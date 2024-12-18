@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronDown } from 'lucide-react';
 import Progress from '../ui/Progress';
 import { useState } from 'react';
-import { City, Country, Pet } from '@/utils/types';
+import { Country } from '@/utils/types';
 import { Button } from '../ui/Button';
 import { Typography } from '../ui/Typography';
 import { toIgnoreCity } from '@/utils/petData';
