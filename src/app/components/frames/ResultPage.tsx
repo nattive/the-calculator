@@ -20,12 +20,10 @@ type Props = {
 
 const ResultPage = ({
     petType,
-    careType,
     location,
     country,
     nights,
     cost,
-    savings,
     yearlyProjectedSavings
 }: Props) => {
     return (
@@ -50,7 +48,7 @@ const ResultPage = ({
                     <span className="font-bold"> {country?.currency}{(Math.ceil(yearlyProjectedSavings)).toLocaleString()}</span>
                     <span className="font-medium"> for  </span>
                     <span className="font-bold"> {nights}</span>
-                    <span className="font-medium">day(s) </span>
+                    <span className="font-medium">day(s) </span>.
                 </Typography>
             </div>
 
