@@ -39,8 +39,6 @@ const ResultPage = ({
                     based on {nights} nights of pet care for a {petType.toLowerCase()} in {location ? `${location},` : null}, {country?.name}
                 </Typography>
             </div>
-            .
-
             {/* Cost Breakdown */}
             <div className="space-y-4">
                 <Typography variant='h3' className='text-primary-900 capitalize-first'>
