@@ -47,7 +47,7 @@ const SelectLocationComponent = ({
 
 
     return (
-        <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
+        <main className="max-w-2xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
             <Progress progress={90} />
 
             <div className="mb-8 sm:mb-12">
@@ -56,7 +56,7 @@ const SelectLocationComponent = ({
                 </Typography>
             </div>
 
-            <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6 px-4 sm:px-0">
+            <div className="w-full space-y-4 sm:space-y-6 ">
                 {/* Country Selection */}
                 <div className="relative">
                     <Typography variant="label">
@@ -73,7 +73,7 @@ const SelectLocationComponent = ({
                                 focus:outline-none focus:border-primary-500"
                         >
                             <span className="text-base sm:text-lg text-grey-700">
-                                {selectedCountry || 'Select a country'}
+                                {selectedCountry || 'Country'}
                             </span>
                             <ChevronDown
                                 size={20}
@@ -144,7 +144,7 @@ const SelectLocationComponent = ({
                 )}
             </div>
 
-            <div className="flex   justify-between items-center text-accent-500 gap-4 mt-8  mx-auto px-4 sm:px-0">
+            <div className="flex   justify-between items-center text-accent-500 gap-4 mt-8 ">
                 <Button
                     variant="link"
                     onClick={onBack}
