@@ -36,7 +36,7 @@ const ResultPage = ({
                 <Typography variant='display'>{country?.currency}{(Math.ceil(yearlyProjectedSavings)).toLocaleString()} a year</Typography>
 
                 <Typography variant='body' className='font-normal'>
-                    based on {nights} nights pet care for a {petType.toLowerCase()} in {location}, {country?.name}
+                    based on {nights} nights of pet care for a {petType.toLowerCase()} in {location}, {country?.name}
                 </Typography>
             </div>
 

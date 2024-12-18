@@ -4,43 +4,52 @@
       "id": "dog",
       "name": "Dog",
       "icon": "/Dog.svg",
-      "careTypes": ["dog sitting", "dog kennels"]
+      "careTypes": [
+        "dog sitting",
+        "dog kennels"
+      ]
     },
     {
       "id": "cat",
       "name": "Cat",
       "icon": "/Cat.svg",
-      "careTypes": ["cat sitting", "cat drop-in visits", "catteries"]
-    },
-    {
-      "id": "horse",
-      "name": "Horse",
-      "icon": "/Horse.svg",
-      "careTypes": ["horse baording"]
+      "careTypes": [
+        "cat sitting",
+        "cat drop-in visits",
+        "catteries"
+      ]
     },
     {
       "id": "bird",
       "name": "Bird",
       "icon": "/Bird.svg",
-      "careTypes": ["pet sitting"]
+      "careTypes": [
+        "pet sitting"
+      ]
     },
     {
       "id": "rabbit",
       "name": "Rabbit",
       "icon": "/Small-pets.svg",
-      "careTypes": ["rabbit sitting"]
+      "careTypes": [
+        "rabbit sitting"
+      ]
     },
     {
       "id": "reptile",
       "name": "Reptile",
       "icon": "/Reptile.svg",
-      "careTypes": ["reptile sitting"]
+      "careTypes": [
+        "reptile sitting"
+      ]
     },
     {
       "id": "chicken",
       "name": "Chicken",
       "icon": "/Poultry.svg",
-      "careTypes": ["chicken sitting"]
+      "careTypes": [
+        "chicken sitting"
+      ]
     }
   ],
   "countries": [
@@ -205,7 +214,6 @@
             }
           }
         },
-
         {
           "name": "Birmingham",
           "prices": {
@@ -335,17 +343,30 @@
         {
           "name": "Others",
           "prices": {
-            "dog": { "dog sitting": 43.85, "dog kennels": 29.23 },
+            "dog": {
+              "dog sitting": 43.85,
+              "dog kennels": 29.23
+            },
             "cat": {
               "cat sitting": 38.71,
               "cat drop-in visits": 9.88,
               "catteries": 15.01
             },
-            "horse": { "horse boarding": 115.25 },
-            "rabbit": { "rabbit sitting": 11.85 },
-            "reptile": { "reptile sitting": 12.35 },
-            "chicken": { "chicken sitting": 19.75 },
-            "bird": { "bird sitting": 16.99 }
+            "horse": {
+              "horse boarding": 115.25
+            },
+            "rabbit": {
+              "rabbit sitting": 11.85
+            },
+            "reptile": {
+              "reptile sitting": 12.35
+            },
+            "chicken": {
+              "chicken sitting": 19.75
+            },
+            "bird": {
+              "bird sitting": 16.99
+            }
           }
         }
       ]
@@ -719,10 +740,18 @@
               "cat drop-in visits": 23.0,
               "catteries": 32.5
             },
-            "reptile": { "reptile sitting": 15.0 },
-            "rabbit": { "rabbit sitting": 27.5 },
-            "chicken": { "chicken sitting": 27.5 },
-            "bird": { "bird sitting": 30.0 }
+            "reptile": {
+              "reptile sitting": 15.0
+            },
+            "rabbit": {
+              "rabbit sitting": 27.5
+            },
+            "chicken": {
+              "chicken sitting": 27.5
+            },
+            "bird": {
+              "bird sitting": 30.0
+            }
           }
         }
       ]
@@ -816,10 +845,18 @@
               "cat drop-in visits": 26.31,
               "catteries": 37.9
             },
-            "reptile": { "reptile sitting": 25.12 },
-            "rabbit": { "rabbit sitting": 27.48 },
-            "chicken": { "chicken sitting": 36.11 },
-            "bird": { "bird sitting": 40.04 }
+            "reptile": {
+              "reptile sitting": 25.12
+            },
+            "rabbit": {
+              "rabbit sitting": 27.48
+            },
+            "chicken": {
+              "chicken sitting": 36.11
+            },
+            "bird": {
+              "bird sitting": 40.04
+            }
           }
         }
       ]
@@ -913,10 +950,18 @@
               "cat drop-in visits": 26.98,
               "catteries": 31.24
             },
-            "reptile": { "reptile sitting": 21.02 },
-            "rabbit": { "rabbit sitting": 23.43 },
-            "chicken": { "chicken sitting": 31.24 },
-            "bird": { "bird sitting": 29.11 }
+            "reptile": {
+              "reptile sitting": 21.02
+            },
+            "rabbit": {
+              "rabbit sitting": 23.43
+            },
+            "chicken": {
+              "chicken sitting": 31.24
+            },
+            "bird": {
+              "bird sitting": 29.11
+            }
           }
         }
       ]

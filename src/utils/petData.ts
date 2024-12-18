@@ -100,13 +100,13 @@ export function calculateTotalCost(
     const _city = (toIgnoreCity(petId) || !petId) ? _country?.cities.find(c => c.name === "Others") : _country?.cities.find(c => c.name.toLowerCase() === city?.toLowerCase())
     const _price = _city?.prices[petId.toLowerCase() as never]
     const costPerYear = Number(_price?.[careType as never]) * +nights
-    console.log({
-        costPerYear,
-        nights,
-        price: _price?.[careType as never],
-        thsPrice: _country?.["ths-yearly"],
-        savings: Math.ceil(costPerYear - (_country?.["ths-yearly"] || 0))
-    });
+    // console.log({
+    //     costPerYear,
+    //     nights,
+    //     price: _price?.[careType as never],
+    //     thsPrice: _country?.["ths-yearly"],
+    //     savings: Math.round(costPerYear - (_country?.["ths-yearly"] || 0))
+    // });
 
     return {
         costPerYear,

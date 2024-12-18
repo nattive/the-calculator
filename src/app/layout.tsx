@@ -48,7 +48,7 @@ export default function RootLayout({
             </div>
           </div>
         </header>
-        <main className="min-h-[calc(100vh-70px)]">
+        <main className="max-h-full">
           {children}
         </main>
       </body>

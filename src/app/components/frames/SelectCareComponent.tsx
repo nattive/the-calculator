@@ -5,20 +5,25 @@ import { Typography } from "../ui/Typography";
 
 type Props = {
     selectedCare?: string;
+    selectedCountry?: string;
     setSelectedCare: (value: string) => void;
     onNext: () => void;
     onBack: () => void;
     careOptions: string[]
 }
 
-const SelectCareComponent = ({ careOptions, selectedCare, setSelectedCare, onNext, onBack }: Props) => {
+const SelectCareComponent = ({ selectedCountry, careOptions, selectedCare, setSelectedCare, onNext, onBack }: Props) => {
     return (
         <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
-            <Progress progress={30} />
+            <Progress progress={60} />
 
             <div className="mb-8 sm:mb-12">
+
                 <Typography className="capitalize-first" variant="h1">
-                    What&apos;s your go-to holiday pet care?
+                    {
+                        ["United Kingdom", "Australia"].includes(selectedCountry!) ? "What's your go-to holiday pet care??" : "What's your go-to vacation pet care?"
+                    }
+
                 </Typography>
             </div>
 
@@ -28,7 +33,7 @@ const SelectCareComponent = ({ careOptions, selectedCare, setSelectedCare, onNex
                         key={option}
                         onClick={() => setSelectedCare(option)}
                         className={`p-3 sm:p-4 rounded-regular border-2 transition-all hover:shadow-sm ${selectedCare === option
-                            ? 'border-primary-500 bg-primary-300'
+                            ? 'border-primary-900 bg-primary-300'
                             : 'border-grey-300 hover:border-primary-500'
                             }`}
                     >
@@ -42,7 +47,7 @@ const SelectCareComponent = ({ careOptions, selectedCare, setSelectedCare, onNex
                 ))}
             </div>
 
-            <div className="flex   justify-between items-center text-accent-500 gap-4 mt-8  mx-auto px-4 sm:px-0">
+            <div className="flex   justify-between items-center text-accent-500 gap-4 mt-8  mx-auto">
                 <Button
                     variant="link"
                     onClick={onBack}

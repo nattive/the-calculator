@@ -13,7 +13,7 @@ type Props = {
 
 const SelectPetComponent = ({ availablePets, selectedPet, setSelectedPet, onNext }: Props) => {
     return (
-        <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
+        <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8 px-4 md:px-8">
             <Progress progress={5} />
 
             <div className="mb-8 sm:mb-12">
@@ -51,7 +51,7 @@ const SelectPetComponent = ({ availablePets, selectedPet, setSelectedPet, onNext
                 ))}
             </div>
 
-            <div className="flex   justify-between items-center gap-4 mt-8  mx-auto px-4 sm:px-0">
+            <div className="flex   justify-between items-center gap-4 mt-8  mx-auto">
                 <Button
                     variant="link"
                     disabled

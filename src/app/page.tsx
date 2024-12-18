@@ -61,14 +61,28 @@ export default function HomePage() {
 
 
   return (
-    <div className=" bg-utility-white">
+    <div className=" max-h-full bg-utility-white">
 
       {stage === 'pet' && (
         <SelectPetComponent
           selectedPet={formData.pet}
           setSelectedPet={(value) => updateFormData('pet', value)}
-          onNext={() => setStage('care')}
+          onNext={() => setStage('location')}
           availablePets={getAllPets()}
+        />
+      )}
+      {stage === 'location' && (
+        <SelectLocationComponent
+          selectedCountry={formData.country?.name}
+          selectedPet={formData.pet}
+          selectedCity={formData.city}
+          setSelectedCountry={(value) => updateFormData('country', value)}
+          setSelectedCity={(value) => updateFormData('city', value)}
+          onNext={() => setStage('care')}
+          onBack={() => setStage('pet')}
+          countries={mergedPetData.countries as Country[]}
+          cities={formData.country ?
+            getCitiesForCountry(formData.country?.name) : []}
         />
       )}
 
@@ -77,32 +91,18 @@ export default function HomePage() {
           careOptions={getCareTypesForPet(formData.pet as string)}
           selectedCare={formData.care}
           setSelectedCare={(value) => updateFormData('care', value)}
-          onNext={() => setStage('location')}
-          onBack={() => setStage('pet')}
+          onNext={() => setStage('nights')}
+          onBack={() => setStage('location')}
         />
       )}
 
-      {stage === 'location' && (
-        <SelectLocationComponent
-          selectedCountry={formData.country?.name}
-          selectedPet={formData.pet}
-          selectedCity={formData.city}
-          setSelectedCountry={(value) => updateFormData('country', value)}
-          setSelectedCity={(value) => updateFormData('city', value)}
-          onNext={() => setStage('nights')}
-          onBack={() => setStage('care')}
-          countries={mergedPetData.countries as Country[]}
-          cities={formData.country ?
-            getCitiesForCountry(formData.country?.name) : []}
-        />
-      )}
 
       {stage === 'nights' && (
         <SelectNightsComponent
           selectedCountry={formData.country?.name}
           selectedNights={formData.nights}
           setSelectedNights={(value) => updateFormData('nights', value)}
-          onBack={() => setStage('location')}
+          onBack={() => setStage('care')}
           onNext={handleComplete}
         />
       )}

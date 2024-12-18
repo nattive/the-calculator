@@ -28,10 +28,9 @@ const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, 
             setSelectedNights(value);
         }
     };
-    console.log(selectedCountry);
 
     return (
-        <main className="max-w-3xl mx-auto sm:p-6 mt-4 sm:mt-8 space-y-8">
+        <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
             <Progress progress={90} />
 
             <Typography variant="h1">
