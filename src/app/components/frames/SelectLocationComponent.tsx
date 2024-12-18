@@ -101,7 +101,7 @@ const SelectLocationComponent = ({
                                         key={country.id}
                                         onClick={() => handleCountrySelect(country)}
                                         className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 transition-colors
-                                            text-base sm:text-lg ${selectedCountry === country.name ? 'bg-primary-300/10' : ''}`}
+                                         dark:text-utility-black   text-base sm:text-lg ${selectedCountry === country.name ? 'bg-primary-300/10' : ''}`}
                                     >
                                         {country.name}
                                     </button>
