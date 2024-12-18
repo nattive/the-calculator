@@ -25,16 +25,24 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} font-sans antialiased`}>
         <header className="bg-utility-white border-b border-grey-300 py-3 sm:py-4">
-          <div className="max-w-4xl mx-auto flex items-center px-4">
-            <div className="flex items-center">
-              <div className="relative w-32 sm:w-40 h-[22px]">
+          <div className="w-full mx-auto flex items-center px-4">
+            <div className="flex">
+              <div className="relative w-48 sm:w-80 h-[55px] sm:ml-[101px]">
                 <Image
-                  src="/THS Asset Bank/Layer 17-1.png"
+                  src="/THS Logo mobile.svg"
                   alt="TrustedHousesitters"
                   fill
                   priority
-                  className="object-contain"
-                  sizes="(max-width: 640px) 128px, 160px"
+                  className="object-contain sm:hidden"
+                  sizes="192px"
+                />
+                <Image
+                  src="/THS-Logo-Horizontal-Green-RGB.svg"
+                  alt="TrustedHousesitters"
+                  fill
+                  priority
+                  className="hidden sm:block object-contain"
+                  sizes="320px"
                 />
               </div>
             </div>

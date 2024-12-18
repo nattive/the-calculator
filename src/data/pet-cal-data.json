@@ -1,320 +1,925 @@
 {
-    "pets": [
+  "pets": [
+    {
+      "id": "dog",
+      "name": "Dog",
+      "icon": "/Dog.svg",
+      "careTypes": ["dog sitting", "dog kennels"]
+    },
+    {
+      "id": "cat",
+      "name": "Cat",
+      "icon": "/Cat.svg",
+      "careTypes": ["cat sitting", "cat drop-in visits", "catteries"]
+    },
+    {
+      "id": "horse",
+      "name": "Horse",
+      "icon": "/Horse.svg",
+      "careTypes": ["horse baording"]
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "icon": "/Bird.svg",
+      "careTypes": ["pet sitting"]
+    },
+    {
+      "id": "rabbit",
+      "name": "Rabbit",
+      "icon": "/Small-pets.svg",
+      "careTypes": ["rabbit sitting"]
+    },
+    {
+      "id": "reptile",
+      "name": "Reptile",
+      "icon": "/Reptile.svg",
+      "careTypes": ["reptile sitting"]
+    },
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "icon": "/Poultry.svg",
+      "careTypes": ["chicken sitting"]
+    }
+  ],
+  "countries": [
+    {
+      "id": "uk",
+      "name": "United Kingdom",
+      "ths-daily": 0.33,
+      "ths-yearly": 119,
+      "currency": "£",
+      "cities": [
         {
-            "id": "dog",
-            "name": "Dog",
-            "icon": "/Dog.svg",
-            "careTypes": [
-                "dog sitting",
-                "dog walking",
-                "dog kennels",
-                "doggy daycare",
-                "dog drop-in visits"
-            ]
+          "name": "London",
+          "prices": {
+            "dog": {
+              "dog sitting": 46.22,
+              "dog kennels": 61.62
+            },
+            "cat": {
+              "cat sitting": 39.95,
+              "cat drop-in visits": 11.3,
+              "catteries": 15.14
+            }
+          }
         },
         {
-            "id": "cat",
-            "name": "Cat",
-            "icon": "/Cat.svg",
-            "careTypes": [
-                "cat sitting",
-                "cat drop-in visits",
-                "catteries"
-            ]
+          "name": "Edinburgh",
+          "prices": {
+            "dog": {
+              "dog sitting": 53.92,
+              "dog kennels": 19.36
+            },
+            "cat": {
+              "cat sitting": 46.22,
+              "cat drop-in visits": 15.41,
+              "catteries": 19.36
+            }
+          }
         },
         {
-            "id": "horse",
-            "name": "Horse",
-            "icon": "/Horse.svg",
-            "careTypes": [
-                "pet sitting"
-            ]
+          "name": "Manchester",
+          "prices": {
+            "dog": {
+              "dog sitting": 47.76,
+              "dog kennels": 31.17
+            },
+            "cat": {
+              "cat sitting": 47.76,
+              "cat drop-in visits": 10.27,
+              "catteries": 10.27
+            }
+          }
         },
         {
-            "id": "bird",
-            "name": "Bird",
-            "icon": "/Bird.svg",
-            "careTypes": [
-                "pet sitting"
-            ]
+          "name": "Brighton",
+          "prices": {
+            "dog": {
+              "dog sitting": 43.13,
+              "dog kennels": 28.76
+            },
+            "cat": {
+              "cat sitting": 43.13,
+              "cat drop-in visits": 20.03,
+              "catteries": 18.49
+            }
+          }
         },
         {
-            "id": "rabbit",
-            "name": "Rabbit",
-            "icon": "/Small-pets.svg",
-            "careTypes": [
-                "pet sitting"
-            ]
+          "name": "Oxford",
+          "prices": {
+            "dog": {
+              "dog sitting": 46.22,
+              "dog kennels": 80.11
+            },
+            "cat": {
+              "cat sitting": 46.22,
+              "cat drop-in visits": 20.54,
+              "catteries": 14.38
+            }
+          }
         },
         {
-            "id": "reptile",
-            "name": "Reptile",
-            "icon": "/Reptile.svg",
-            "careTypes": [
-                "pet sitting"
-            ]
+          "name": "Glasgow",
+          "prices": {
+            "dog": {
+              "dog sitting": 46.73,
+              "dog kennels": 24.9
+            },
+            "cat": {
+              "cat sitting": 46.73,
+              "cat drop-in visits": 17.97,
+              "catteries": 17.46
+            }
+          }
         },
         {
-            "id": "chickens",
-            "name": "Chickens",
-            "icon": "/Poultry.svg",
-            "careTypes": [
-                "pet sitting"
-            ]
+          "name": "Cambridge",
+          "prices": {
+            "dog": {
+              "dog sitting": 46.22,
+              "dog kennels": 25.16
+            },
+            "cat": {
+              "cat sitting": 46.22,
+              "cat drop-in visits": 20.54,
+              "catteries": 21.31
+            }
+          }
+        },
+        {
+          "name": "Sheffield",
+          "prices": {
+            "dog": {
+              "dog sitting": 61.62,
+              "dog kennels": 16.95
+            },
+            "cat": {
+              "cat sitting": 30.81,
+              "cat drop-in visits": 16.95,
+              "catteries": 18.49
+            }
+          }
+        },
+        {
+          "name": "Leeds",
+          "prices": {
+            "dog": {
+              "dog sitting": 61.62,
+              "dog kennels": 21.57
+            },
+            "cat": {
+              "cat sitting": 54.43,
+              "cat drop-in visits": 19.0,
+              "catteries": 11.3
+            }
+          }
+        },
+        {
+          "name": "Bath",
+          "prices": {
+            "dog": {
+              "dog sitting": 34.92,
+              "dog kennels": 32.35
+            },
+            "cat": {
+              "cat sitting": 59.05,
+              "cat drop-in visits": 15.41,
+              "catteries": 14.89
+            }
+          }
+        },
+        {
+          "name": "Nottingham",
+          "prices": {
+            "dog": {
+              "dog sitting": 56.49,
+              "dog kennels": 35.53
+            },
+            "cat": {
+              "cat sitting": 46.22,
+              "cat drop-in visits": 12.84,
+              "catteries": 10.27
+            }
+          }
+        },
+
+        {
+          "name": "Birmingham",
+          "prices": {
+            "dog": {
+              "dog sitting": 61.62,
+              "dog kennels": 30.81
+            },
+            "cat": {
+              "cat sitting": 61.62,
+              "cat drop-in visits": 12.84,
+              "catteries": 10.27
+            }
+          }
+        },
+        {
+          "name": "Norwich",
+          "prices": {
+            "dog": {
+              "dog sitting": 43.65,
+              "dog kennels": 27.73
+            },
+            "cat": {
+              "cat sitting": 46.22,
+              "cat drop-in visits": 12.32,
+              "catteries": 10.27
+            }
+          }
+        },
+        {
+          "name": "Cardiff",
+          "prices": {
+            "dog": {
+              "dog sitting": 61.62,
+              "dog kennels": 22.08
+            },
+            "cat": {
+              "cat sitting": 56.49,
+              "cat drop-in visits": 15.92,
+              "catteries": 9.5
+            }
+          }
+        },
+        {
+          "name": "Bornemouth",
+          "prices": {
+            "dog": {
+              "dog sitting": 44.67,
+              "dog kennels": 23.11
+            },
+            "cat": {
+              "cat sitting": 39.54,
+              "cat drop-in visits": 17.97,
+              "catteries": 18.49
+            }
+          }
+        },
+        {
+          "name": "Liverpool",
+          "prices": {
+            "dog": {
+              "dog sitting": 59.05,
+              "dog kennels": 22.59
+            },
+            "cat": {
+              "cat sitting": 46.22,
+              "cat drop-in visits": 12.84,
+              "catteries": 14.38
+            }
+          }
+        },
+        {
+          "name": "Southampton",
+          "prices": {
+            "dog": {
+              "dog sitting": 51.53,
+              "dog kennels": 22.08
+            },
+            "cat": {
+              "cat sitting": 51.35,
+              "cat drop-in visits": 14.89,
+              "catteries": 14.89
+            }
+          }
+        },
+        {
+          "name": "York",
+          "prices": {
+            "dog": {
+              "dog sitting": 38.51,
+              "dog kennels": 29.78
+            },
+            "cat": {
+              "cat sitting": 38.51,
+              "cat drop-in visits": 14.89,
+              "catteries": 14.38
+            }
+          }
+        },
+        {
+          "name": "Belfast",
+          "prices": {
+            "dog": {
+              "dog sitting": 53.92,
+              "dog kennels": 27.22
+            },
+            "cat": {
+              "cat sitting": 53.92,
+              "cat drop-in visits": 13.86,
+              "catteries": 14.89
+            }
+          }
+        },
+        {
+          "name": "Newcastle",
+          "prices": {
+            "dog": {
+              "dog sitting": 59.05,
+              "dog kennels": 20.03
+            },
+            "cat": {
+              "cat sitting": 59.05,
+              "cat drop-in visits": 12.32,
+              "catteries": 13.35
+            }
+          }
+        },
+        {
+          "name": "Others",
+          "prices": {
+            "dog": { "dog sitting": 43.85, "dog kennels": 29.23 },
+            "cat": {
+              "cat sitting": 38.71,
+              "cat drop-in visits": 9.88,
+              "catteries": 15.01
+            },
+            "horse": { "horse boarding": 115.25 },
+            "rabbit": { "rabbit sitting": 11.85 },
+            "reptile": { "reptile sitting": 12.35 },
+            "chicken": { "chicken sitting": 19.75 },
+            "bird": { "bird sitting": 16.99 }
+          }
         }
-    ],
-    "countries": [
+      ]
+    },
+    {
+      "id": "us",
+      "name": "United States",
+      "ths-daily": 0.41,
+      "ths-yearly": 149,
+      "currency": "$",
+      "cities": [
         {
-            "id": "uk",
-            "name": "United Kingdom",
-            "ths-daily": 0.33,
-            "ths-yearly": 119,
-            "currency": "£",
-            "cities": [
-                {
-                    "name": "London",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 58.50,
-                            "dog walking": 17.49,
-                            "dog kennels": 78.00,
-                            "doggy daycare": 71.50,
-                            "dog drop-in visits": 14.30
-                        },
-                        "cat": {
-                            "cat sitting": 45.50,
-                            "cat drop-in visits": 14.30,
-                            "catteries": 19.50
-                        },
-                        "pet sitting": 52.00
-                    }
-                },
-                {
-                    "name": "Edinburgh",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 68.25,
-                            "dog walking": 14.30,
-                            "dog kennels": 24.51,
-                            "doggy daycare": 31.20,
-                            "dog drop-in visits": 18.20
-                        },
-                        "cat": {
-                            "cat sitting": 58.50,
-                            "cat drop-in visits": 19.50,
-                            "catteries": 24.51
-                        },
-                        "pet sitting": 46.15
-                    }
-                },
-                {
-                    "name": "Manchester",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 60.45,
-                            "dog walking": 16.90,
-                            "dog kennels": 39.46,
-                            "doggy daycare": 39.00,
-                            "dog drop-in visits": 26.00
-                        },
-                        "cat": {
-                            "cat sitting": 60.45,
-                            "cat drop-in visits": 13.00,
-                            "catteries": 13.00
-                        },
-                        "pet sitting": 60.45
-                    }
-                }
-            ]
+          "name": "Los Angeles",
+          "prices": {
+            "dog": {
+              "dog sitting": 77.5,
+              "dog kennels": 55.5
+            },
+            "cat": {
+              "cat sitting": 114.5,
+              "cat drop-in visits": 31.5,
+              "catteries": 52.5
+            }
+          }
         },
         {
-            "id": "us",
-            "name": "United States",
-            "ths-daily": 0.41,
-            "ths-yearly": 149,
-            "currency": "$",
-            "cities": [
-                {
-                    "name": "New York City",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 117.50,
-                            "dog walking": 35.00,
-                            "dog kennels": 83.00,
-                            "doggy daycare": 50.00,
-                            "dog drop-in visits": 34.00
-                        },
-                        "cat": {
-                            "cat sitting": 95.00,
-                            "cat drop-in visits": 25.50,
-                            "catteries": 55.00
-                        },
-                        "pet sitting": 100.00
-                    }
-                },
-                {
-                    "name": "Los Angeles",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 77.50,
-                            "dog walking": 25.00,
-                            "dog kennels": 55.50,
-                            "doggy daycare": 44.00,
-                            "dog drop-in visits": 26.50
-                        },
-                        "cat": {
-                            "cat sitting": 114.50,
-                            "cat drop-in visits": 31.50,
-                            "catteries": 52.50
-                        },
-                        "pet sitting": 80.00
-                    }
-                },
-                {
-                    "name": "San Francisco",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 113.75,
-                            "dog walking": 35.00,
-                            "dog kennels": 59.20,
-                            "doggy daycare": 49.00,
-                            "dog drop-in visits": 32.00
-                        },
-                        "cat": {
-                            "cat sitting": 132.00,
-                            "cat drop-in visits": 36.50,
-                            "catteries": 55.00
-                        },
-                        "pet sitting": 105.00
-                    }
-                }
-            ]
+          "name": "New York City",
+          "prices": {
+            "dog": {
+              "dog sitting": 117.5,
+              "dog kennels": 83.0
+            },
+            "cat": {
+              "cat sitting": 95.0,
+              "cat drop-in visits": 25.5,
+              "catteries": 55.0
+            }
+          }
         },
         {
-            "id": "au",
-            "name": "Australia",
-            "ths-daily": 0.33,
-            "ths-yearly": 119,
-            "currency": "$",
-            "cities": [
-                {
-                    "name": "Sydney",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 38.84,
-                            "dog walking": 23.65,
-                            "dog kennels": 38.86,
-                            "doggy daycare": 37.18,
-                            "dog drop-in visits": 17.50
-                        },
-                        "cat": {
-                            "cat sitting": 21.95,
-                            "cat drop-in visits": 25.00,
-                            "catteries": 30.24
-                        },
-                        "pet sitting": 21.95
-                    }
-                },
-                {
-                    "name": "Melbourne",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 43.91,
-                            "dog walking": 23.64,
-                            "dog kennels": 35.46,
-                            "doggy daycare": 43.90,
-                            "dog drop-in visits": 33.78
-                        },
-                        "cat": {
-                            "cat sitting": 40.52,
-                            "cat drop-in visits": 21.95,
-                            "catteries": 23.65
-                        },
-                        "pet sitting": 47.28
-                    }
-                },
-                {
-                    "name": "Brisbane",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 50.67,
-                            "dog walking": 20.27,
-                            "dog kennels": 25.34,
-                            "doggy daycare": 35.82,
-                            "dog drop-in visits": 20.28
-                        },
-                        "cat": {
-                            "cat sitting": 27.02,
-                            "cat drop-in visits": 21.97,
-                            "catteries": 23.65
-                        },
-                        "pet sitting": 33.78
-                    }
-                }
-            ]
+          "name": "Seattle",
+          "prices": {
+            "dog": {
+              "dog sitting": 89.0,
+              "dog kennels": 63.5
+            },
+            "cat": {
+              "cat sitting": 131.0,
+              "cat drop-in visits": 25.7,
+              "catteries": 59.0
+            }
+          }
         },
         {
-            "id": "ca",
-            "name": "Canada",
-            "ths-daily": 0.55,
-            "ths-yearly": 199,
-            "currency": "£",
-            "cities": [
-                {
-                    "name": "Vancouver",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 56.25,
-                            "dog walking": 27.00,
-                            "dog kennels": 69.00,
-                            "doggy daycare": 37.80,
-                            "dog drop-in visits": 26.00
-                        },
-                        "cat": {
-                            "cat sitting": 64.00,
-                            "cat drop-in visits": 55.00,
-                            "catteries": 60.50
-                        },
-                        "pet sitting": 57.50
-                    }
-                },
-                {
-                    "name": "Toronto",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 61.50,
-                            "dog walking": 35.50,
-                            "dog kennels": 40.00,
-                            "doggy daycare": 25.00,
-                            "dog drop-in visits": 22.50
-                        },
-                        "cat": {
-                            "cat sitting": 57.50,
-                            "cat drop-in visits": 23.50,
-                            "catteries": 38.50
-                        },
-                        "pet sitting": 32.50
-                    }
-                },
-                {
-                    "name": "Montreal",
-                    "prices": {
-                        "dog": {
-                            "dog sitting": 60.00,
-                            "dog walking": 22.00,
-                            "dog kennels": 45.00,
-                            "doggy daycare": 46.90,
-                            "dog drop-in visits": 25.00
-                        },
-                        "cat": {
-                            "cat sitting": 80.00,
-                            "cat drop-in visits": 22.50,
-                            "catteries": 35.00
-                        },
-                        "pet sitting": 45.00
-                    }
-                }
-            ]
+          "name": "Denver",
+          "prices": {
+            "dog": {
+              "dog sitting": 92.5,
+              "dog kennels": 74.0
+            },
+            "cat": {
+              "cat sitting": 114.0,
+              "cat drop-in visits": 25.0,
+              "catteries": 53.5
+            }
+          }
+        },
+        {
+          "name": "Portland",
+          "prices": {
+            "dog": {
+              "dog sitting": 87.5,
+              "dog kennels": 77.5
+            },
+            "cat": {
+              "cat sitting": 122.0,
+              "cat drop-in visits": 32.5,
+              "catteries": 46.0
+            }
+          }
+        },
+        {
+          "name": "San Francisco",
+          "prices": {
+            "dog": {
+              "dog sitting": 113.75,
+              "dog kennels": 59.2
+            },
+            "cat": {
+              "cat sitting": 132.0,
+              "cat drop-in visits": 36.5,
+              "catteries": 55.0
+            }
+          }
+        },
+        {
+          "name": "Austin",
+          "prices": {
+            "dog": {
+              "dog sitting": 97.5,
+              "dog kennels": 53.25
+            },
+            "cat": {
+              "cat sitting": 112.5,
+              "cat drop-in visits": 29.75,
+              "catteries": 59.5
+            }
+          }
+        },
+        {
+          "name": "San Diego",
+          "prices": {
+            "dog": {
+              "dog sitting": 75.0,
+              "dog kennels": 47.5
+            },
+            "cat": {
+              "cat sitting": 120.5,
+              "cat drop-in visits": 34.0,
+              "catteries": 47.5
+            }
+          }
+        },
+        {
+          "name": "Chicago",
+          "prices": {
+            "dog": {
+              "dog sitting": 81.0,
+              "dog kennels": 65.0
+            },
+            "cat": {
+              "cat sitting": 117.13,
+              "cat drop-in visits": 28.75,
+              "catteries": 30.0
+            }
+          }
+        },
+        {
+          "name": "Brooklyn",
+          "prices": {
+            "dog": {
+              "dog sitting": 85.0,
+              "dog kennels": 77.5
+            },
+            "cat": {
+              "cat sitting": 107.5,
+              "cat drop-in visits": 35.0,
+              "catteries": 40.0
+            }
+          }
+        },
+        {
+          "name": "Washington DC",
+          "prices": {
+            "dog": {
+              "dog sitting": 98.75,
+              "dog kennels": 41.25
+            },
+            "cat": {
+              "cat sitting": 103.0,
+              "cat drop-in visits": 29.63,
+              "catteries": 51.5
+            }
+          }
+        },
+        {
+          "name": "Atlanta",
+          "prices": {
+            "dog": {
+              "dog sitting": 105.0,
+              "dog kennels": 56.5
+            },
+            "cat": {
+              "cat sitting": 105.0,
+              "cat drop-in visits": 31.5,
+              "catteries": 42.0
+            }
+          }
+        },
+        {
+          "name": "Boston",
+          "prices": {
+            "dog": {
+              "dog sitting": 82.5,
+              "dog kennels": 55.0
+            },
+            "cat": {
+              "cat sitting": 125.13,
+              "cat drop-in visits": 37.5,
+              "catteries": 40.0
+            }
+          }
+        },
+        {
+          "name": "Oakland",
+          "prices": {
+            "dog": {
+              "dog sitting": 119.5,
+              "dog kennels": 87.0
+            },
+            "cat": {
+              "cat sitting": 132.78,
+              "cat drop-in visits": 49.7,
+              "catteries": 37.5
+            }
+          }
+        },
+        {
+          "name": "Dallas",
+          "prices": {
+            "dog": {
+              "dog sitting": 105.0,
+              "dog kennels": 39.75
+            },
+            "cat": {
+              "cat sitting": 95.0,
+              "cat drop-in visits": 24.75,
+              "catteries": 39.0
+            }
+          }
+        },
+        {
+          "name": "Houston",
+          "prices": {
+            "dog": {
+              "dog sitting": 135.0,
+              "dog kennels": 41.25
+            },
+            "cat": {
+              "cat sitting": 102.5,
+              "cat drop-in visits": 30.5,
+              "catteries": 30.0
+            }
+          }
+        },
+        {
+          "name": "Philadelphia",
+          "prices": {
+            "dog": {
+              "dog sitting": 92.5,
+              "dog kennels": 51.5
+            },
+            "cat": {
+              "cat sitting": 116.0,
+              "cat drop-in visits": 23.75,
+              "catteries": 40.0
+            }
+          }
+        },
+        {
+          "name": "Minneapolis",
+          "prices": {
+            "dog": {
+              "dog sitting": 99.0,
+              "dog kennels": 52.0
+            },
+            "cat": {
+              "cat sitting": 99.5,
+              "cat drop-in visits": 27.87,
+              "catteries": 33.0
+            }
+          }
+        },
+        {
+          "name": "Phoenix",
+          "prices": {
+            "dog": {
+              "dog sitting": 114.0,
+              "dog kennels": 49.5
+            },
+            "cat": {
+              "cat sitting": 122.5,
+              "cat drop-in visits": 22.5,
+              "catteries": 56.0
+            }
+          }
+        },
+        {
+          "name": "Nashville",
+          "prices": {
+            "dog": {
+              "dog sitting": 142.5,
+              "dog kennels": 41.25
+            },
+            "cat": {
+              "cat sitting": 119.95,
+              "cat drop-in visits": 23.5,
+              "catteries": 30.0
+            }
+          }
+        },
+        {
+          "name": "Boulder",
+          "prices": {
+            "dog": {
+              "dog sitting": 75.0,
+              "dog kennels": 37.5
+            },
+            "cat": {
+              "cat sitting": 75.0,
+              "cat drop-in visits": 19.5,
+              "catteries": 37.0
+            }
+          }
+        },
+        {
+          "name": "Asheville",
+          "prices": {
+            "dog": {
+              "dog sitting": 95.0,
+              "dog kennels": 40.0
+            },
+            "cat": {
+              "cat sitting": 95.0,
+              "cat drop-in visits": 30.25,
+              "catteries": 46.0
+            }
+          }
+        },
+        {
+          "name": "Salt Lake City",
+          "prices": {
+            "dog": {
+              "dog sitting": 75.0,
+              "dog kennels": 44.0
+            },
+            "cat": {
+              "cat sitting": 76.63,
+              "cat drop-in visits": 21.75,
+              "catteries": 26.0
+            }
+          }
+        },
+        {
+          "name": "Miami",
+          "prices": {
+            "dog": {
+              "dog sitting": 162.5,
+              "dog kennels": 44.0
+            },
+            "cat": {
+              "cat sitting": 135.5,
+              "cat drop-in visits": 31.0,
+              "catteries": 35.0
+            }
+          }
+        },
+        {
+          "name": "Tucson",
+          "prices": {
+            "dog": {
+              "dog sitting": 145.0,
+              "dog kennels": 35.0
+            },
+            "cat": {
+              "cat sitting": 114.0,
+              "cat drop-in visits": 32.13,
+              "catteries": 23.0
+            }
+          }
+        },
+        {
+          "name": "Others",
+          "prices": {
+            "dog": {
+              "dog sitting": 75.0,
+              "dog kennels": 40.0
+            },
+            "cat": {
+              "cat sitting": 62.5,
+              "cat drop-in visits": 23.0,
+              "catteries": 32.5
+            },
+            "reptile": { "reptile sitting": 15.0 },
+            "rabbit": { "rabbit sitting": 27.5 },
+            "chicken": { "chicken sitting": 27.5 },
+            "bird": { "bird sitting": 30.0 }
+          }
         }
-    ]
+      ]
+    },
+    {
+      "id": "au",
+      "name": "Australia",
+      "ths-daily": 0.33,
+      "ths-yearly": 119,
+      "currency": "$",
+      "cities": [
+        {
+          "name": "Sydney",
+          "prices": {
+            "dog": {
+              "dog sitting": 60.97,
+              "dog kennels": 61.01
+            },
+            "cat": {
+              "cat sitting": 34.46,
+              "cat drop-in visits": 39.25,
+              "catteries": 47.48
+            }
+          }
+        },
+        {
+          "name": "Melbourne",
+          "prices": {
+            "dog": {
+              "dog sitting": 68.94,
+              "doggy daycare": 55.67
+            },
+            "cat": {
+              "cat sitting": 63.61,
+              "cat drop-in visits": 34.46,
+              "catteries": 37.13
+            }
+          }
+        },
+        {
+          "name": "Brisbane",
+          "prices": {
+            "dog": {
+              "dog sitting": 79.54,
+              "dog kennels": 39.78
+            },
+            "cat": {
+              "cat sitting": 42.42,
+              "cat drop-in visits": 34.49,
+              "catteries": 37.13
+            }
+          }
+        },
+        {
+          "name": "Perth",
+          "prices": {
+            "dog": {
+              "dog sitting": 53.08,
+              "dog kennels": 33.44
+            },
+            "cat": {
+              "cat sitting": 45.11,
+              "cat drop-in visits": 36.09,
+              "catteries": 68.48
+            }
+          }
+        },
+        {
+          "name": "Gold Coast",
+          "prices": {
+            "dog": {
+              "dog sitting": 111.45,
+              "dog kennels": 32.37
+            },
+            "cat": {
+              "cat sitting": 42.44,
+              "cat drop-in visits": 26.53,
+              "catteries": 32.09
+            }
+          }
+        },
+        {
+          "name": "Others",
+          "prices": {
+            "dog": {
+              "dog sitting": 84.21,
+              "dog kennels": 49.46
+            },
+            "cat": {
+              "cat sitting": 58.88,
+              "cat drop-in visits": 26.31,
+              "catteries": 37.9
+            },
+            "reptile": { "reptile sitting": 25.12 },
+            "rabbit": { "rabbit sitting": 27.48 },
+            "chicken": { "chicken sitting": 36.11 },
+            "bird": { "bird sitting": 40.04 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ca",
+      "name": "Canada",
+      "ths-daily": 0.55,
+      "ths-yearly": 199,
+      "currency": "£",
+      "cities": [
+        {
+          "name": "Vancouver",
+          "prices": {
+            "dog": {
+              "dog sitting": 79.88,
+              "dog kennels": 97.98
+            },
+            "cat": {
+              "cat sitting": 90.88,
+              "cat drop-in visits": 78.1,
+              "catteries": 85.91
+            }
+          }
+        },
+        {
+          "name": "Toronto",
+          "prices": {
+            "dog": {
+              "dog sitting": 87.33,
+              "dog kennels": 56.8
+            },
+            "cat": {
+              "cat sitting": 81.65,
+              "cat drop-in visits": 33.37,
+              "catteries": 54.67
+            }
+          }
+        },
+        {
+          "name": "Montreal",
+          "prices": {
+            "dog": {
+              "dog sitting": 85.2,
+              "dog kennels": 63.9
+            },
+            "cat": {
+              "cat sitting": 113.6,
+              "cat drop-in visits": 31.95,
+              "catteries": 49.7
+            }
+          }
+        },
+        {
+          "name": "Calgary",
+          "prices": {
+            "dog": {
+              "dog sitting": 143.78,
+              "dog kennels": 110.05
+            },
+            "cat": {
+              "cat sitting": 82.36,
+              "cat drop-in visits": 56.8,
+              "catteries": 41.89
+            }
+          }
+        },
+        {
+          "name": "Victoria",
+          "prices": {
+            "dog": {
+              "dog sitting": 92.3,
+              "dog kennels": 81.3
+            },
+            "cat": {
+              "cat sitting": 81.65,
+              "cat drop-in visits": 42.6,
+              "catteries": 52.54
+            }
+          }
+        },
+        {
+          "name": "Others",
+          "prices": {
+            "dog": {
+              "dog sitting": 76.68,
+              "dog kennels": 41.89
+            },
+            "cat": {
+              "cat sitting": 39.76,
+              "cat drop-in visits": 26.98,
+              "catteries": 31.24
+            },
+            "reptile": { "reptile sitting": 21.02 },
+            "rabbit": { "rabbit sitting": 23.43 },
+            "chicken": { "chicken sitting": 31.24 },
+            "bird": { "bird sitting": 29.11 }
+          }
+        }
+      ]
+    }
+  ]
 }

@@ -1,5 +1,17 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
+
+import plugin from "tailwindcss/plugin"
+// Let's create a plugin that adds utilities!
+const capitalizeFirst = plugin(function ({ addUtilities }) {
+  const newUtilities = {
+    '.capitalize-first:first-letter': {
+      textTransform: 'uppercase',
+    },
+  }
+  addUtilities(newUtilities)
+})
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -32,12 +44,16 @@ module.exports = {
         100: "#f7f4fe",
       },
       grey: {
-        900: "#001f1f",
-        700: "#003939",
-        500: "#657373",
-        400: "#879494",
-        300: "#e5ebeb",
-        100: "#f2f5f5",
+        50: '#F8FAFA',
+        100: '#F2F5F5',
+        200: '#E5EBEB',
+        300: '#D8E0E0',
+        400: '#B7C4C4',
+        500: '#657373',  // Base text color
+        600: '#4D5959',
+        700: '#003939',  // Darker text color
+        800: '#002626',
+        900: '#001F1F',
       },
       error: {
         100: "#ffe5ea",
@@ -51,6 +67,9 @@ module.exports = {
         yellow: "#ffc000",
         "input-focus": "#005fcc",
       },
+      teal: {
+        700: '#336161'
+      }
     },
     fontFamily: {
       sans: [
@@ -87,10 +106,20 @@ module.exports = {
       xs: "0.75rem",     // 12px
       sm: "0.875rem",    // 14px
       md: "1rem",        // 16px
+      intermediate: "1.125rem", // 18px
       lg: "1.25rem",     // 20px
+      "medium-lg": "1.375rem", // 22px  
       xl: "1.5rem",      // 24px
       "2xl": "2rem",     // 32px
       "3xl": "3rem",     // 48px
+      'base': '1rem',      // 16px
+      display: '2.5rem',  // 40px
+      'display-mobile': '1.875rem', // 30px
+    },
+    lineHeight: {
+      'snug': '1.25',      // 20px for 16px font
+      'loose': '2',        // 40px for 20px font
+      'copy': '1.273',     // 28px (28/22)
     },
     fontWeight: {
       normal: "400",
@@ -104,6 +133,7 @@ module.exports = {
       },
       height: {
         em: "1em",
+        button: '59px'
       },
       screens: {
         largeTablet: "800px",
@@ -146,5 +176,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [capitalizeFirst],
+
 }

@@ -1,12 +1,12 @@
 "use client"
 import { useState } from 'react';
-import SelectPetComponent from './components/SelectPet';
-import SelectCareComponent from './components/SelectCareComponent';
-import SelectLocationComponent from './components/SelectLocationComponent';
-import SelectNightsComponent from './components/SelectNightsComponent';
-import ResultPage from './components/ResultPage';
+import SelectPetComponent from './components/frames/SelectPet';
+import SelectCareComponent from './components/frames/SelectCareComponent';
+import SelectLocationComponent from './components/frames/SelectLocationComponent';
+import SelectNightsComponent from './components/frames/SelectNightsComponent';
+import ResultPage from './components/frames/ResultPage';
 import { calculateTotalCost, getAllPets, getCareTypesForPet, getCitiesForCountry, getCountries } from '@/utils/petData';
-import StarterFrame from './components/StarterFrame';
+import StarterFrame from './components/frames/StarterFrame';
 
 type FormData = {
   pet?: string;
@@ -62,7 +62,7 @@ export default function HomePage() {
 
 
   return (
-    <div className="min-h-screen bg-utility-white">
+    <div className=" bg-utility-white">
 
       {
         !showCalculator ?
