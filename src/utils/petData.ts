@@ -1,8 +1,8 @@
 
-import { PetData, Pet, Option, Country } from "./types";
+import { Pet, Option, Country } from "./types";
 import mergedData from '@/data/pet-cal-data.json';
 
-export const mergedPetData: PetData = mergedData;
+export const mergedPetData = mergedData;
 
 // Function to get all pets with their icons
 export function getAllPets(): Pet[] {
