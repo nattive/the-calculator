@@ -31,7 +31,7 @@ const SelectPetComponent = ({ availablePets, selectedPet, setSelectedPet, onNext
                         key={pet.id}
                         onClick={() => setSelectedPet(pet.id)}
                         className={`p-3 sm:p-4 rounded-regular border-2 transition-all hover:shadow-sm ${selectedPet === pet.id
-                            ? 'border-primary-500 bg-primary-300'
+                            ? 'border-primary-900 bg-primary-300'
                             : 'border-grey-300 hover:border-primary-500'
                             }`}
                     >

@@ -39,26 +39,26 @@ const ResultPage = ({
                     based on {nights} nights of pet care for a {petType.toLowerCase()} in {location ? `${location},` : null}, {country?.name}
                 </Typography>
             </div>
+            .
 
             {/* Cost Breakdown */}
             <div className="space-y-4">
                 <Typography variant='h3' className='text-primary-900 capitalize-first'>
-                    <span className="font-bold capitalize-first">{careType}</span>
-                    <span className="font-medium"> in </span>
+                    <span className="font-medium"> You’ll pay </span>
+                    <span className="font-bold capitalize-first"> {country?.currency}{Math.ceil(cost).toLocaleString()}</span>
+                    <span className="font-medium"> for dog sitting in </span>
                     <span className="font-bold">{location ? `${location},` : null} {country?.name}</span>
-                    <span className="font-medium"> cost </span>
-                    <span className="font-bold">{`${country?.currency}${cost}`}</span>
-                    <span className="font-medium">. But with </span>
-                    <span className="font-bold">TrustedHousesitters</span>
-                    <span className="font-medium">, you could save up to </span>
-                    <span className="font-bold">{`${country?.currency}${savings}`}</span>
-                    <span className="font-medium">.</span>
+                    <span className="font-medium"> But with TrustedHousesitters, you could save up to </span>
+                    <span className="font-bold"> {country?.currency}{(Math.ceil(yearlyProjectedSavings)).toLocaleString()}</span>
+                    <span className="font-medium"> for  </span>
+                    <span className="font-bold"> {nights}</span>
+                    <span className="font-medium">day(s) </span>
                 </Typography>
             </div>
 
             <Button
             >
-                Register now
+                Sign up now
                 <ChevronRight className='text-highlight-700' size={20} />
             </Button>
         </main>
