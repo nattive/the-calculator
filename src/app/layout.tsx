@@ -27,7 +27,7 @@ export default function RootLayout({
         <header className="bg-utility-white border-b border-grey-300 py-3 sm:py-4">
           <div className="w-full mx-auto flex items-center px-4">
             <div className="flex">
-              <div className="relative w-48 sm:w-80 h-[55px] sm:ml-[101px]">
+              <div className="relative w-48 sm:w-80 h-[60px] sm:ml-[101px]">
                 <Image
                   src="/THS Logo mobile.svg"
                   alt="TrustedHousesitters"
