@@ -85,7 +85,6 @@ export default function HomePage() {
             getCitiesForCountry(formData.country?.name) : []}
         />
       )}
-
       {stage === 'care' && (
         <SelectCareComponent
           careOptions={getCareTypesForPet(formData.pet as string)}
