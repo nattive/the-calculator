@@ -90,6 +90,7 @@ export default function HomePage() {
         <SelectCareComponent
           careOptions={getCareTypesForPet(formData.pet as string)}
           selectedCare={formData.care}
+          selectedCountry={formData.country?.name}
           setSelectedCare={(value) => updateFormData('care', value)}
           onNext={() => setStage('nights')}
           onBack={() => setStage('location')}
