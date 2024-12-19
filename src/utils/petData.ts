@@ -1,6 +1,6 @@
 
 import { IPetData } from "@/data/pet-cal-data.interface";
-import { Pet, Option, Country } from "./types";
+import { Pet, Option } from "./types";
 import mergedData from '@/data/pet-cal-data.json';
 
 export const mergedPetData: IPetData = mergedData;
@@ -30,53 +30,6 @@ export function getCareTypesForPet(petId: string): string[] {
     return pet ? pet.careTypes : [];
 }
 
-// Function to get price for a specific service
-export function getPrice(
-    countryId: string,
-    city: string,
-    petId: string,
-    careType: string
-): {
-    price: number
-    yearlyPrice: number
-    dailySavings: number
-    yearlySavings: number
-    thsCostDaily: number
-    thsCostYearly: number
-} | null {
-    try {
-        const countryData = mergedPetData.countries.find(c => c.name === countryId) as Country
-        const cityData = countryData?.cities.find(c => c.name === city);
-        const thsCostDaily = countryData["ths-daily"]!
-        const thsCostYearly = countryData["ths-yearly"]!
-
-        if (!cityData) return null;
-
-        // For dogs and cats, get specific service prices
-        if (petId === 'dog' || petId === 'cat') {
-            // @ts-expect-error error
-            const price = cityData.prices[petId as keyof typeof cityData.prices][careType] || 0
-            const dailySavings = price - countryData["ths-daily"]!
-            const yearlyPrice = price * 365
-            const yearlySavings = yearlyPrice - countryData["ths-yearly"]!
-            return {
-                price, yearlyPrice, yearlySavings, dailySavings, thsCostDaily,
-                thsCostYearly
-            }
-        }
-        const price = cityData.prices['pet sitting'] || 0
-        const dailySavings = price - countryData?.["ths-daily"]
-        const yearlyPrice = price * 365
-        const yearlySavings = yearlyPrice - countryData["ths-yearly"]!
-        return {
-            price, yearlyPrice, yearlySavings, dailySavings, thsCostDaily,
-            thsCostYearly
-        }
-    } catch (error) {
-        console.error('Error getting price:', error);
-        return null;
-    }
-}
 
 // Function to calculate total cost
 export function calculateTotalCost(
@@ -97,8 +50,19 @@ export function calculateTotalCost(
      * get selected country
      */
     const _country = mergedData.countries.find(country => country.name.toLowerCase() === selectedCountry.name.toLowerCase())
+    /**
+     * check if pet selected is part of pets without city
+     * or pet which cities should be excluded
+     * Falls back to country level price (Others)
+     */
     const _city = (toIgnoreCity(petId) || !petId) ? _country?.cities.find(c => c.name === "Others") : _country?.cities.find(c => c.name.toLowerCase() === city?.toLowerCase())
+    /**
+     * Get the price object
+     */
     const _price = _city?.prices[petId.toLowerCase() as never]
+    /**
+     * Get the actual price from the price object
+     */
     const costPerYear = Number(_price?.[careType as never]) * +nights
     // console.log({
     //     costPerYear,
@@ -121,33 +85,11 @@ export function isCareTypeAvailable(petId: string, careType: string): boolean {
     return pet ? pet.careTypes.includes(careType) : false;
 }
 
-// Helper function to get service price ranges across all cities
-export function getPriceRange(
-    petId: string,
-    careType: string
-): { min: number; max: number; average: number } | null {
-    try {
-        const prices: number[] = [];
 
-        mergedPetData.countries.forEach(country => {
-            country.cities.forEach(city => {
-                const price = getPrice(country.id, city.name, petId, careType);
-                if (price) prices.push(price.price);
-            });
-        });
-
-        if (prices.length === 0) return null;
-
-        return {
-            min: Math.min(...prices),
-            max: Math.max(...prices),
-            average: prices.reduce((a, b) => a + b, 0) / prices.length
-        };
-    } catch (error) {
-        console.error('Error calculating price range:', error);
-        return null;
-    }
-}
-
+/**
+ * Check if city dropdown is to be ignored
+ * @param petCare string
+ * @returns 
+ */
 export const toIgnoreCity = (petCare: string) => !["dog",
     "cat"].includes(petCare)
