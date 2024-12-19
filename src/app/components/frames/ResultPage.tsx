@@ -24,9 +24,11 @@ const ResultPage = ({
     country,
     nights,
     cost,
-    careType,
+    careType: option,
     yearlyProjectedSavings
 }: Props) => {
+    const isUk = ["United Kingdom"].includes(country?.name as string)
+    const careType = option === "catteries" ? isUk ? "catteries" : "Cat boarding" : option
     const onClickBenefit = () => {
 
         switch (country?.name) {

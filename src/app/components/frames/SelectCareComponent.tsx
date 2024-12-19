@@ -13,15 +13,18 @@ type Props = {
 }
 
 const SelectCareComponent = ({ selectedCountry, careOptions, selectedCare, setSelectedCare, onNext, onBack }: Props) => {
-    const isUk = ["United Kingdom", "Australia"].includes(selectedCountry!)
+    const isUkAu = ["United Kingdom", "Australia"].includes(selectedCountry!)
+    const isUk = ["United Kingdom"].includes(selectedCountry!)
+
     return (
         <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
             <Progress progress={60} />
 
             <div className="mb-8 sm:mb-12">
+
                 <Typography className="capitalize-first" variant="h1">
                     {
-                        isUk ? "What's your go-to holiday pet care?" : "What's your go-to vacation pet care?"
+                        isUkAu ? "What's your go-to holiday pet care?" : "What's your go-to vacation pet care?"
                     }
 
                 </Typography>
