@@ -32,7 +32,7 @@ const ResultPage = ({
             {/* Savings Card */}
             <div className="bg-[#E8FAE9] rounded-lg p-8 text-center">
                 <Typography className='text-primary-900' variant='h3'>With TrustedHousesitters you could save</Typography>
-                <Typography className='text-primary-900' variant='display'>{country?.currency}{(Math.ceil(yearlyProjectedSavings)).toLocaleString()} a year</Typography>
+                <Typography className='text-primary-900' variant='display'>{country?.currency}{(Math.ceil(yearlyProjectedSavings || 0)).toLocaleString()} a year</Typography>
 
                 <Typography variant='body' className='font-normal'>
                     based on {nights} nights of pet care for a {petType.toLowerCase()} in {location ? `${location},` : null} {country?.name}
@@ -46,7 +46,7 @@ const ResultPage = ({
                     <span className="font-medium"> for {careType.toLowerCase()} in </span>
                     <span className="font-bold">{location ? `${location},` : null} {country?.name}</span>
                     <span className="font-medium"> But with TrustedHousesitters, you could save up to </span>
-                    <span className="font-bold"> {country?.currency}{(Math.ceil(yearlyProjectedSavings)).toLocaleString()}</span>
+                    <span className="font-bold"> {country?.currency}{(Math.ceil(yearlyProjectedSavings || 0)).toLocaleString()}</span>
                     <span className="font-medium"> for  </span>
                     <span className="font-bold"> {nights}</span>
                     <span className="font-medium">day(s)</span>.

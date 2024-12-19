@@ -13,7 +13,6 @@ type Props = {
 }
 
 const SelectCareComponent = ({ selectedCountry, careOptions, selectedCare, setSelectedCare, onNext, onBack }: Props) => {
-    console.log({ selectedCountry });
 
     return (
         <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8">
@@ -22,7 +21,7 @@ const SelectCareComponent = ({ selectedCountry, careOptions, selectedCare, setSe
             <div className="mb-8 sm:mb-12">
                 <Typography className="capitalize-first" variant="h1">
                     {
-                        ["United Kingdom", "Australia"].includes(selectedCountry!) ? "What's your go-to holiday pet care??" : "What's your go-to vacation pet care?"
+                        ["United Kingdom", "Australia"].includes(selectedCountry!) ? "What's your go-to holiday pet care?" : "What's your go-to vacation pet care?"
                     }
 
                 </Typography>
