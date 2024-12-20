@@ -33,7 +33,7 @@ export default function RootLayout({
                   alt="TrustedHousesitters"
                   fill
                   priority
-                  className="object-contain sm:hidden dark:invert"
+                  className="object-contain sm:hidden"
                   sizes="192px"
                 />
                 <Image
