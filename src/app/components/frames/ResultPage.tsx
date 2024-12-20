@@ -47,32 +47,55 @@ const ResultPage = ({
     return (
         <main className="max-w-3xl mx-auto p-4 sm:p-6 mt-4 sm:mt-8 space-y-8">
             {/* Savings Card */}
-            <div className="bg-[#E8FAE9] rounded-lg p-8 text-center">
+            <div className="bg-[#E8FAE9] dark:bg-dark-primary-900/20 rounded-lg p-8 text-center">
                 {
                     yearlyProjectedSavings > 0 ? <>
+                        <Typography
+                            className='text-primary-900 dark:text-dark-text-primary'
+                            variant='h3'
+                        >
+                            With TrustedHousesitters you could save
+                        </Typography>
+                        <Typography
+                            className='text-primary-900 dark:text-dark-text-primary'
+                            variant='display'
+                        >
+                            {country?.currency}{(Math.ceil(yearlyProjectedSavings || 0)).toLocaleString()} a year
+                        </Typography>
 
-                        <Typography className='text-primary-900' variant='h3'>With TrustedHousesitters you could save</Typography>
-                        <Typography className='text-primary-900' variant='display'>{country?.currency}{(Math.ceil(yearlyProjectedSavings || 0)).toLocaleString()} a year</Typography>
-
-                        <Typography variant='body' className='font-normal'>
+                        <Typography
+                            variant='body'
+                            className='font-normal dark:text-dark-text-secondary'
+                        >
                             based on {nights} nights of pet care for a {petType.toLowerCase()} in {location ? `${location},` : null} {country?.name}.
                         </Typography>
                     </> : <>
-                        <Typography className='text-primary-900' variant='display'>Sorry</Typography>
+                        <Typography
+                            className='text-primary-900 dark:text-dark-text-primary'
+                            variant='display'
+                        >
+                            Sorry
+                        </Typography>
 
-                        <Typography className='text-primary-900' variant='h3'>It doesn’t look like you’ll save money on pet care this time around.   </Typography>
-
+                        <Typography
+                            className='text-primary-900 dark:text-dark-text-primary'
+                            variant='h3'
+                        >
+                            It doesn&lsquo;t look like you&lsquo;ll save money on pet care this time around.
+                        </Typography>
                     </>
                 }
-
             </div>
+
             {/* Cost Breakdown */}
             <div className="space-y-4">
                 {
                     yearlyProjectedSavings > 0 ?
-
-                        <Typography variant='h3' className='text-primary-900 capitalize-first'>
-                            <span className="font-medium"> You’ll pay </span>
+                        <Typography
+                            variant='h3'
+                            className='text-primary-900 dark:text-dark-text-primary capitalize-first'
+                        >
+                            <span className="font-medium"> You&lsquo;ll pay </span>
                             <span className="font-bold capitalize-first"> {country?.currency}{Math.ceil(cost).toLocaleString()}</span>
                             <span className="font-medium"> for {careType.toLowerCase()} in </span>
                             <span className="font-bold">{location ? `${location},` : null} {country?.name}.</span>
@@ -83,8 +106,11 @@ const ResultPage = ({
                             <span className="font-medium">day(s)</span>.
                         </Typography>
                         : <>
-                            <Typography variant='h3' className='text-primary-900 capitalize-first text-center'>
-                                You’re more likely to save if you go away for more nights a year.
+                            <Typography
+                                variant='h3'
+                                className='text-primary-900 dark:text-dark-text-primary capitalize-first text-center'
+                            >
+                                You&lsquo;re more likely to save if you go away for more nights a year.
                             </Typography>
                         </>}
             </div>
@@ -95,7 +121,7 @@ const ResultPage = ({
                 }}
             >
                 {yearlyProjectedSavings > 0 ? "Sign up now" : "See all our benefits"}
-                <ChevronRight className='text-highlight-700' size={20} />
+                <ChevronRight className='text-highlight-700 dark:text-dark-accent-300' size={20} />
             </Button>
         </main>
     );

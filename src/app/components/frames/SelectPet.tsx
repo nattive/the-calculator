@@ -31,8 +31,8 @@ const SelectPetComponent = ({ availablePets, selectedPet, setSelectedPet, onNext
                         key={pet.id}
                         onClick={() => setSelectedPet(pet.id)}
                         className={`p-3 sm:p-4 rounded-regular border-2 transition-all hover:shadow-sm ${selectedPet === pet.id
-                            ? 'border-primary-900 bg-primary-300'
-                            : 'border-grey-300 hover:border-primary-500'
+                            ? 'border-primary-900 dark:border-dark-primary-500 bg-primary-300 dark:bg-dark-primary-900'
+                            : 'border-grey-300 dark:border-dark-border-medium hover:border-primary-500 dark:hover:border-dark-primary-400'
                             }`}
                     >
                         <div className="flex items-center gap-2 sm:gap-3">
@@ -40,7 +40,7 @@ const SelectPetComponent = ({ availablePets, selectedPet, setSelectedPet, onNext
                                 <img
                                     src={pet.icon}
                                     alt={pet.name}
-                                    className="w-5 sm:w-6 h-5 sm:h-6 transition-transform group-hover:scale-105"
+                                    className="w-5 sm:w-6 h-5 sm:h-6 transition-transform group-hover:scale-105 dark:invert"
                                 />
                             </div>
                             <Typography variant="caption">
@@ -51,14 +51,13 @@ const SelectPetComponent = ({ availablePets, selectedPet, setSelectedPet, onNext
                 ))}
             </div>
 
-            <div className="flex   justify-between items-center gap-4 mt-8  mx-auto">
+            <div className="flex justify-between items-center gap-4 mt-8 mx-auto">
                 <Button
                     variant="link"
                     disabled
-                    // onClick={onBack} 
                     className="group w-[50%]"
                 >
-                    <ChevronLeft className="w-5 h-5 text-accent-500" />
+                    <ChevronLeft className="w-5 h-5  dark:text-grey-300 text-accent-500 " />
                     Back
                 </Button>
                 <Button

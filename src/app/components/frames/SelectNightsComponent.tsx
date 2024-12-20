@@ -37,9 +37,7 @@ const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, 
                 {
                     ["United Kingdom", "Australia"].includes(selectedCountry!) ? "How many nights of holiday pet care do you book per year?" : "How many nights of vacation pet care do you book per year?"
                 }
-
             </Typography>
-
 
             <div className="relative">
                 <input
@@ -48,19 +46,24 @@ const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, 
                     pattern="[0-9]*"
                     value={selectedNights}
                     onChange={handleInputChange}
-                    className="w-full p-4  text-lg border-2 border-grey-300 rounded-regular focus:border-primary-500 focus:outline-none"
+                    className="w-full p-4 text-lg border-2 border-grey-300 dark:border-dark-border-medium 
+                    rounded-regular focus:border-primary-500 dark:focus:border-dark-primary-400 
+                    focus:outline-none bg-utility-white dark:bg-dark-bg-800 
+                    text-grey-700 dark:text-dark-text-primary"
                 />
                 <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col">
                     <button
                         onClick={handleIncrement}
-                        className="p-1 text-grey-500 hover:text-primary-500 transition-colors"
+                        className="p-1 text-grey-500 dark:text-dark-text-secondary hover:text-primary-500 
+                        dark:hover:text-dark-primary-400 transition-colors"
                         aria-label="Increase nights"
                     >
                         <ChevronUp size={20} />
                     </button>
                     <button
                         onClick={handleDecrement}
-                        className="p-1 text-grey-500 hover:text-primary-500 transition-colors"
+                        className="p-1 text-grey-500 dark:text-dark-text-secondary hover:text-primary-500 
+                        dark:hover:text-dark-primary-400 transition-colors"
                         aria-label="Decrease nights"
                     >
                         <ChevronDown size={20} />
@@ -68,21 +71,19 @@ const SelectNightsComponent = ({ selectedNights = 1, setSelectedNights, onNext, 
                 </div>
             </div>
 
-
-            <div className="flex mt-8 justify-between items-center gap-4   mx-auto  sm:px-0">
+            <div className="flex mt-8 justify-between items-center gap-4 mx-auto sm:px-0">
                 <Button
                     variant="link"
                     disabled={selectedNights < 1}
                     onClick={onBack}
                 >
-                    <ChevronLeft className="w-5 h-5 text-accent-500" />
+                    <ChevronLeft className="w-5 h-5 text-accent-500 dark:text-dark-accent-300" />
                     Back
                 </Button>
                 <Button
                     disabled={selectedNights < 0}
                     onClick={onNext}
                     variant="primary"
-
                     className="group w-[70%]"
                 >
                     Next

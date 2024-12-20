@@ -41,10 +41,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
             "font-poppins",
             "font-semibold",
             "text-accent-500",
+            "dark:text-grey-300",
             "hover:text-accent-700",
             "transition-colors",
             "leading-[27px]",
-            "disabled:text-accent-500/50",
+            "disabled:text-grey-100/50",
             "p-0"
         ].join(" ")
     };

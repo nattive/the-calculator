@@ -69,6 +69,67 @@ module.exports = {
       },
       teal: {
         700: '#336161'
+      },
+      dark: {
+        // Background colors (from darkest to lightest)
+        bg: {
+          950: '#121212',     // Base dark background
+          900: '#141414',     // Slightly lighter background
+          800: '#1E1E1E',     // Card/container background
+          700: '#232323',     // Elevated components
+          600: '#2C2C2C',     // Active states
+          500: '#333333',     // Hover states
+          400: '#404040',     // Borders
+          300: '#4D4D4D',     // Subtle borders
+          200: '#666666',     // Disabled text
+          100: '#808080'      // Muted text
+        },
+        // Primary brand colors for dark theme
+        primary: {
+          900: '#004D4D',     // Darkest primary
+          800: '#005F5F',
+          700: '#007272',
+          600: '#008585',
+          500: '#00A69B',     // Main primary (kept from original)
+          400: '#33B8AF',
+          300: '#66CAC3',
+          200: '#99DCD7',
+          100: '#CCEDEB'
+        },
+        // Text colors for dark theme
+        text: {
+          primary: '#FFFFFF',    // Primary text
+          secondary: '#B3B3B3',  // Secondary text
+          muted: '#808080',      // Muted text
+          accent: '#00A69B'      // Accent text (using primary-500)
+        },
+        // Surface colors for components
+        surface: {
+          primary: '#1E1E1E',    // Primary surface
+          secondary: '#232323',   // Secondary surface
+          elevated: '#2C2C2C'     // Elevated surface
+        },
+        // Accent colors adapted for dark theme
+        accent: {
+          900: '#4A1873',        // Darker version of original accent
+          700: '#5925AB',
+          500: '#6B35D6',        // Slightly adjusted from original
+          300: '#9B74E3',
+          100: '#DFD3F7'
+        },
+        // Success, warning, error states
+        state: {
+          success: '#2ECC71',
+          warning: '#F1C40F',
+          error: '#E74C3C',
+          info: '#3498DB'
+        },
+        // Border colors
+        border: {
+          strong: '#404040',
+          medium: '#333333',
+          subtle: '#262626'
+        }
       }
     },
     fontFamily: {

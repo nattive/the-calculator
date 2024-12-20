@@ -61,7 +61,7 @@ export default function HomePage() {
 
 
   return (
-    <div className=" max-h-full bg-utility-white">
+    <div className=" bg-utility-white dark:bg-dark-bg-950">
 
       {stage === 'pet' && (
         <SelectPetComponent

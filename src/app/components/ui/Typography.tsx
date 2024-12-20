@@ -14,75 +14,79 @@ interface TypographyProps {
 const variantStyles: Record<VariantType, string> = {
     // Main heading
     h1: `
-        font-sans font-bold 
-        text-2xl leading-tight 
-        sm:text-3xl sm:leading-relaxed 
-        text-primary-700 
-        dark:text-primary-500 
-        transition-colors duration-200
-    `,
+    font-sans font-bold 
+    text-2xl leading-tight 
+    sm:text-3xl sm:leading-relaxed 
+    text-primary-700 
+    dark:text-dark-text-primary 
+    transition-colors duration-200
+`,
     // Secondary heading
     h2: `
-        font-sans font-semibold 
-        text-xl leading-tight 
-        sm:text-2xl sm:leading-relaxed 
-        text-primary-700 
-        dark:text-primary-500
-    `,
+    font-sans font-semibold 
+    text-xl leading-tight 
+    sm:text-2xl sm:leading-relaxed 
+    text-primary-700 
+    dark:text-dark-text-primary
+`,
     // Third level heading
     h3: `
-    font-sans
-    font-semibold
-    text-2xs
-     text-lg  
-    leading-[32px]
-    text-primary-700
+font-sans
+font-semibold
+text-2xs
+ text-lg  
+leading-[32px]
+text-primary-700
+dark:text-dark-text-primary
 `,
     // Fourth level heading
     h4: `
-        font-sans font-medium 
-        text-base leading-normal 
-        sm:text-lg sm:leading-relaxed 
-        text-primary-700 
-        dark:text-primary-500
-    `,
+    font-sans font-medium 
+    text-base leading-normal 
+    sm:text-lg sm:leading-relaxed 
+    text-primary-700 
+    dark:text-dark-text-primary
+`,
     // Main body text
     body: `
-        font-sans font-medium 
-        text-base leading-snug 
-        sm:text-xl sm:leading-loose 
-        text-teal-700
-    `,
+    font-sans font-medium 
+    text-base leading-snug 
+    sm:text-xl sm:leading-loose 
+    text-teal-700
+    dark:text-dark-text-secondary
+`,
     // Subtext for additional context
     subtext: `
-        font-sans font-medium 
-        text-base leading-snug 
-        sm:text-xl sm:leading-loose 
-        text-teal-700
-    `,
+    font-sans font-medium 
+    text-base leading-snug 
+    sm:text-xl sm:leading-loose 
+    text-teal-700
+    dark:text-dark-text-secondary
+`,
     // large
     display: `
-        font-sans 
-        font-bold          
-        text-2xl    
-        md:text-display     
-        text-primary-700 
-    `,
+    font-sans 
+    font-bold          
+    text-2xl    
+    md:text-display     
+    text-primary-700 
+    dark:text-dark-text-primary
+`,
     // Small text/caption
     caption: `
-    capitalize-first font-sans font-normal sm:text-intermediate text-medium-lg  leading-copy  text-primary-700/80  dark:text-primary-300/80
-    `,
+capitalize-first font-sans font-normal sm:text-intermediate text-medium-lg  leading-copy  text-primary-700/80  dark:text-dark-text-secondary/80
+`,
     label: `
-        font-sans 
-        font-semibold 
-        text-intermediate    
-        md:text-lg  
-        lg:text-xl   
-        text-primary-900 
-        transition-colors
-        duration-200
+    font-sans 
+    font-semibold 
+    text-intermediate    
+    md:text-lg  
+    lg:text-xl   
+    text-primary-900 
+    dark:text-dark-text-primary
+    transition-colors
+    duration-200
 `
-
 };
 
 

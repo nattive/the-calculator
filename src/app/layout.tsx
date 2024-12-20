@@ -22,18 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} font-sans antialiased`}>
-        <header className="bg-utility-white border-b border-grey-300 py-3 sm:py-4">
+    <html lang="en" className="light">
+      <body className={`${poppins.variable} font-sans antialiased bg-white dark:bg-dark-bg-950`}>
+        <header className="   border-b border-gray-300  py-3 sm:py-4">
           <div className="w-full mx-auto flex items-center px-4">
             <div className="flex">
-              <div className="relative w-48 sm:w-80 h-[60px] sm:ml-[101px]">
+              <div className="relative w-48 sm:w-80 h-16 sm:ml-24">
                 <Image
                   src="/THS Logo mobile.svg"
                   alt="TrustedHousesitters"
                   fill
                   priority
-                  className="object-contain sm:hidden"
+                  className="object-contain sm:hidden dark:invert"
                   sizes="192px"
                 />
                 <Image
@@ -41,14 +41,14 @@ export default function RootLayout({
                   alt="TrustedHousesitters"
                   fill
                   priority
-                  className="hidden sm:block object-contain"
+                  className="hidden sm:block object-contain text-utility-white"
                   sizes="320px"
                 />
               </div>
             </div>
           </div>
         </header>
-        <main className="max-h-full">
+        <main className="">
           {children}
         </main>
       </body>

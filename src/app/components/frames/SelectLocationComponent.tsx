@@ -68,7 +68,7 @@ const SelectLocationComponent = ({
                 </Typography>
             </div>
 
-            <div className="w-full space-y-4 sm:space-y-6 ">
+            <div className="w-full space-y-4 sm:space-y-6">
                 {/* Country Selection */}
                 <div className="relative">
                     <Typography variant="label">
@@ -80,28 +80,29 @@ const SelectLocationComponent = ({
                                 setIsCountryOpen(!isCountryOpen);
                                 setIsCityOpen(false);
                             }}
-                            className="w-full p-3 sm:p-4 text-left border-2 border-grey-300 rounded-regular 
-                                flex justify-between items-center hover:border-primary-500 transition-colors
-                                focus:outline-none focus:border-primary-500"
+                            className="w-full p-3 sm:p-4 text-left border-2 border-grey-300 dark:border-dark-border-medium rounded-regular 
+                                flex justify-between items-center hover:border-primary-500 dark:hover:border-dark-primary-400 transition-colors
+                                focus:outline-none focus:border-primary-500 dark:focus:border-dark-primary-400"
                         >
-                            <span className="text-base sm:text-lg text-grey-700">
+                            <span className="text-base sm:text-lg text-grey-700 dark:text-dark-text-primary">
                                 {selectedCountry || 'Country'}
                             </span>
                             <ChevronDown
                                 size={20}
-                                className={`transition-transform duration-200 ${isCountryOpen ? 'rotate-180' : ''}`}
+                                className={`transition-transform duration-200 dark:text-dark-text-primary ${isCountryOpen ? 'rotate-180' : ''}`}
                             />
                         </button>
 
                         {isCountryOpen && (
-                            <div className="absolute z-20 w-full mt-1 bg-utility-white border-2 border-grey-300 
-                                rounded-regular max-h-48 sm:max-h-60 overflow-auto shadow-lg">
+                            <div className="absolute z-20 w-full mt-1 bg-utility-white dark:bg-dark-bg-800 border-2 border-grey-300 
+                                dark:border-dark-border-medium rounded-regular max-h-48 sm:max-h-60 overflow-auto shadow-lg">
                                 {countries.map((country) => (
                                     <button
                                         key={country.id}
                                         onClick={() => handleCountrySelect(country)}
-                                        className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 transition-colors
-                                         dark:text-utility-black   text-base sm:text-lg ${selectedCountry === country.name ? 'bg-primary-300/10' : ''}`}
+                                        className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 dark:hover:bg-dark-bg-700 transition-colors
+                                         text-grey-700 dark:text-dark-text-primary text-base sm:text-lg ${selectedCountry === country.name ? 'bg-primary-300/10 dark:bg-dark-primary-900/20' : ''
+                                            }`}
                                     >
                                         {country.name}
                                     </button>
@@ -123,30 +124,31 @@ const SelectLocationComponent = ({
                                     setIsCityOpen(!isCityOpen);
                                     setIsCountryOpen(false);
                                 }}
-                                className="w-full p-3 sm:p-4 text-left border-2 border-grey-300 rounded-regular 
-                                    flex justify-between items-center hover:border-primary-500 transition-colors
-                                    focus:outline-none focus:border-primary-500"
+                                className="w-full p-3 sm:p-4 text-left border-2 border-grey-300 dark:border-dark-border-medium rounded-regular 
+                                    flex justify-between items-center hover:border-primary-500 dark:hover:border-dark-primary-400 transition-colors
+                                    focus:outline-none focus:border-primary-500 dark:focus:border-dark-primary-400"
                             >
-                                <span className="text-base sm:text-lg capitalize-first text-grey-700">
+                                <span className="text-base sm:text-lg capitalize-first text-grey-700 dark:text-dark-text-primary">
                                     {selectedCity || 'City'}
                                 </span>
                                 <ChevronDown
                                     size={20}
-                                    className={`transition-transform duration-200 ${isCityOpen ? 'rotate-180' : ''}`}
+                                    className={`transition-transform duration-200 dark:text-dark-text-primary ${isCityOpen ? 'rotate-180' : ''}`}
                                 />
                             </button>
 
                             {isCityOpen && (
-                                <div className="absolute z-20 w-full mt-1 bg-utility-white border-2 border-grey-300 
-                                    rounded-regular max-h-48 sm:max-h-60 overflow-auto shadow-lg">
+                                <div className="absolute z-20 w-full mt-1 bg-utility-white dark:bg-dark-bg-800 border-2 border-grey-300 
+                                    dark:border-dark-border-medium rounded-regular max-h-48 sm:max-h-60 overflow-auto shadow-lg">
                                     {cities
                                         .filter(c => c.toLowerCase() !== 'others')
                                         .map((city) => (
                                             <button
                                                 key={city}
                                                 onClick={() => handleCitySelect(city)}
-                                                className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 transition-colors
-                capitalize-first text-base sm:text-lg ${selectedCity === city ? 'bg-primary-300/10' : ''}`}
+                                                className={`w-full p-3 sm:p-4 text-left hover:bg-grey-100 dark:hover:bg-dark-bg-700 transition-colors
+                                                capitalize-first text-grey-700 dark:text-dark-text-primary text-base sm:text-lg ${selectedCity === city ? 'bg-primary-300/10 dark:bg-dark-primary-900/20' : ''
+                                                    }`}
                                             >
                                                 {city}
                                             </button>
@@ -159,13 +161,13 @@ const SelectLocationComponent = ({
                 )}
             </div>
 
-            <div className="flex   justify-between items-center text-accent-500 gap-4 mt-8 ">
+            <div className="flex justify-between items-center text-accent-500 dark:text-dark-accent-300 gap-4 mt-8">
                 <Button
                     variant="link"
                     onClick={onBack}
                     className="group w-[50%]"
                 >
-                    <ChevronLeft className="w-5 h-5 text-accent-500" />
+                    <ChevronLeft className="w-5 h-5 text-accent-500 dark:text-dark-accent-300" />
                     Back
                 </Button>
                 <Button
