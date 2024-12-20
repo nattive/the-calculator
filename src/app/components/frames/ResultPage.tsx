@@ -117,7 +117,7 @@ const ResultPage = ({
 
             <Button
                 onClick={() => {
-                    return yearlyProjectedSavings > 0 ? null : onClickBenefit()
+                    return yearlyProjectedSavings > 0 ? window.location.href = "https://www.trustedhousesitters.com/pricing/" : onClickBenefit()
                 }}
             >
                 {yearlyProjectedSavings > 0 ? "Sign up now" : "See all our benefits"}
